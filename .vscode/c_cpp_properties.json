@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+        "${workspaceFolder}/**",
+        "/opt/homebrew/opt/gtk4/include/gtk-4.0",
+        "/opt/homebrew/opt/glib/include/glib-2.0",
+        "/opt/homebrew/opt/glib/lib/glib-2.0/include",
+        "/opt/homebrew/opt/pango/include/pango-1.0",
+        "/opt/homebrew/opt/gdk-pixbuf/include/gdk-pixbuf-2.0",
+        "/opt/homebrew/opt/cairo/include/cairo",
+        "/opt/homebrew/opt/harfbuzz/include/harfbuzz",
+        "/opt/homebrew/opt/graphene/include/graphene-1.0",
+        "/opt/homebrew/opt/graphene/lib/graphene-1.0/include",
+
+
+        "/opt/homebrew/opt/fribidi/include/fribidi"
+      ],
+            "defines": [],
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c17",
+            "cppStandard": "c++14",
+            "intelliSenseMode": "macos-clang-arm64"
+        }
+    ],
+    "version": 4
+}

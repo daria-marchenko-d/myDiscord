@@ -1,0 +1,3 @@
+/Users/mameaminataconstancesane/Desktop/myDiscord/build/CMakeFiles/MyGTK4App.dir
+/Users/mameaminataconstancesane/Desktop/myDiscord/build/CMakeFiles/edit_cache.dir
+/Users/mameaminataconstancesane/Desktop/myDiscord/build/CMakeFiles/rebuild_cache.dir
