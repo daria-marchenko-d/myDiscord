@@ -1,0 +1,14 @@
+[
+{
+  "directory": "D:/Daria/Downloads/La_plateforme/курс logiciel/langage_c/14.04.25-05.05.25/myDiscord/build",
+  "command": "C:/msys64/mingw64/bin/gcc.exe -DLIBDEFLATE_DLL @CMakeFiles/server.dir/includes_C.rsp -g -std=gnu99 -finput-charset=UTF-8 -fexec-charset=UTF-8 -o CMakeFiles/server.dir/server/src/crypto.c.obj -c \"D:/Daria/Downloads/La_plateforme/курс logiciel/langage_c/14.04.25-05.05.25/myDiscord/server/src/crypto.c\"",
+  "file": "D:/Daria/Downloads/La_plateforme/курс logiciel/langage_c/14.04.25-05.05.25/myDiscord/server/src/crypto.c",
+  "output": "CMakeFiles/server.dir/server/src/crypto.c.obj"
+},
+{
+  "directory": "D:/Daria/Downloads/La_plateforme/курс logiciel/langage_c/14.04.25-05.05.25/myDiscord/build",
+  "command": "C:/msys64/mingw64/bin/gcc.exe -DLIBDEFLATE_DLL @CMakeFiles/server.dir/includes_C.rsp -g -std=gnu99 -finput-charset=UTF-8 -fexec-charset=UTF-8 -o CMakeFiles/server.dir/server/src/db.c.obj -c \"D:/Daria/Downloads/La_plateforme/курс logiciel/langage_c/14.04.25-05.05.25/myDiscord/server/src/db.c\"",
+  "file": "D:/Daria/Downloads/La_plateforme/курс logiciel/langage_c/14.04.25-05.05.25/myDiscord/server/src/db.c",
+  "output": "CMakeFiles/server.dir/server/src/db.c.obj"
+}
+]
