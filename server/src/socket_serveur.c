@@ -1,6 +1,6 @@
 #include <stdio.h> //Pour afficher du texte (comme messages de log)
 #include <stdlib.h> //Pour des fonctions générales (comme quitter le programme en cas d'erreur)
-#include <string.h> //Pour manipuler du texte(chaînes de caractères)
+#include <string.h> //Pour manipuler du texte(chaînes de caractères)...
 
 #ifdef _WIN32
     #include <winsock2.h>
@@ -44,7 +44,7 @@ int main() {
     INIT_SOCKETS();
 
     SOCKET server_fd, new_socket;
-    struct sockaddr_in adress, client_address;
+    struct sockaddr_in address, client_address;
     int opt = 1;
     socklen_t client_addrlen = sizeof(client_address);
 
@@ -65,8 +65,8 @@ int main() {
 #endif
 
     // 2. Configurer l'adresse
-    address.sin_family = AF_INET; //On utlise l'adress IP 
-    address.sin_addr = INADDR_ANY; //Ecouter sur toutes les adresses IP de la machine
+    address.sin_family = AF_INET; //On utlise l'adresse IP 
+    address.sin_addr.s_addr = INADDR_ANY; //Ecouter sur toutes les adresses IP de la machine
     address.sin_port = htons(SERVER_PORT); //Utiliser le port défini dans Config.h
 
     //Lier le socket à l'adresse et au port (brancher la prise)
@@ -81,19 +81,19 @@ int main() {
         exit(EXIT_FAILURE);
     }
 
-    print("Serveur en écoute sur le port %d...\n", SERVEUR_PORT);
+    printf("Serveur en écoute sur le port %d...\n", SERVER_PORT);
 
     //Accepter les connexions des clients : Créer une boucle infinie pour attendre et accepter chaque nouvelle connexion 
 
     while(1) {
         printf("En attente d'une nouvelle connexion...\n");
-        new_socket = accept(server_fd, (struct sockardde *)&client_address, &client_addrlen);
+        new_socket = accept(server_fd, (struct sockaddr *)&client_address, &client_addrlen);
         if (new_socket == INVALID_SOCKET) {
             perror("Erreur lors de l'acceptation");
             continue;//Continuer à attendre d'autres connexions même si une échoue
         }
 
-        print("Client connecté (socket : %d\n", (int)new_socket);
+        printf("Client connecté (socket : %d\n", (int)new_socket);
         handle_client(new_socket);    
     }
     return 0;

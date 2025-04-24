@@ -9,36 +9,42 @@ if(CMAKE_C_COMPILER_ID STREQUAL "GNU")
 endif()
 
 # === GTK4 ===
-find_package(GTK4 REQUIRED)
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(GTK4 REQUIRED IMPORTED_TARGET gtk4)
+
+include_directories(${GTK4_INCLUDE_DIRS})
+link_directories(${GTK4_LIBRARY_DIRS})
+
 
 # === PostgreSQL (libpq) ===
 find_package(PostgreSQL REQUIRED)
+if(NOT PostgreSQL_FOUND)
+    message(FATAL_ERROR "PostgreSQL not found")
+endif()
+
+include_directories(/opt/homebrew/opt/libpq/include)
+link_directories(/opt/homebrew/opt/libpq/lib)
 
 # OpenSSL
 find_package(OpenSSL REQUIRED)
+if(NOT OpenSSL_FOUND)
+    message(FATAL_ERROR "OpenSSL not found")
+endif()
 
 # === Server ===
 file(GLOB SERVER_SOURCES "server/src/*.c")
 add_executable(server ${SERVER_SOURCES})
 include_directories(server/include)
-
-# Lier les bibliothèques pour le serveur
 target_link_libraries(server PRIVATE pq OpenSSL::SSL OpenSSL::Crypto)
 
 # === Client ===
-add_executable(MyGTK4App
-    client/main.c
-    client/ui.c
-    client/ui_callbacks.c # Ajoute ui_callbacks.c
-)
+#file(GLOB CLIENT_SOURCES "client/*.c") # Recherche automatique des sources
 
-target_include_directories(MyGTK4App PRIVATE
-    ${GTK4_INCLUDE_DIRS}
-)
+#add_executable(MyGTK4App ${CLIENT_SOURCES})
 
-target_link_libraries(MyGTK4App
-    ${GTK4_LIBRARIES}
-)
+#include_directories(client/include ${GTK4_INCLUDE_DIRS}) # Ajoute client/include
+
+#target_link_libraries(MyGTK4App PRIVATE PkgConfig::GTK4)
 
 # === Configuration spécifique à Windows (si nécessaire) ===
 if(WIN32)
@@ -46,11 +52,16 @@ if(WIN32)
     add_definitions(-D_WIN32)
 
     # Ajouter les chemins d'inclusion spécifiques à Windows (si nécessaire)
-    # include_directories("C:/msys64/mingw64/include")
+    # set(CMAKE_INCLUDE_PATH "C:/msys64/mingw64/include;${CMAKE_INCLUDE_PATH}")
 
     # Ajouter les bibliothèques spécifiques à Windows (si nécessaire)
-    # link_directories("C:/msys64/mingw64/lib")
+    # set(CMAKE_LIBRARY_PATH "C:/msys64/mingw64/lib;${CMAKE_LIBRARY_PATH}")
 
     # Lier les bibliothèques supplémentaires spécifiques à Windows (si nécessaire)
-    # target_link_libraries(MyGTK4App gdi32)
+    # target_link_libraries(MyGTK4App gdi32 ws2_32)
 endif()
+
+# === Installation ===
+
+#install(TARGETS MyGTK4App DESTINATION bin)
+install(TARGETS server DESTINATION bin)
