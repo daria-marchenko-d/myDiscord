@@ -37,6 +37,31 @@ if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "/usr/bin/objdump")
 endif()
 
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/Users/mameaminataconstancesane/Desktop/myDiscord/build/server")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/server" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/server")
+    execute_process(COMMAND /usr/bin/install_name_tool
+      -delete_rpath "/opt/homebrew/Cellar/gtk4/4.18.4/lib"
+      -delete_rpath "/opt/homebrew/Cellar/pango/1.56.3/lib"
+      -delete_rpath "/opt/homebrew/Cellar/harfbuzz/11.0.1/lib"
+      -delete_rpath "/opt/homebrew/lib"
+      -delete_rpath "/opt/homebrew/Cellar/cairo/1.18.4/lib"
+      -delete_rpath "/opt/homebrew/Cellar/graphene/1.10.8/lib"
+      -delete_rpath "/opt/homebrew/Cellar/glib/2.84.1/lib"
+      -delete_rpath "/opt/homebrew/opt/gettext/lib"
+      -delete_rpath "/opt/homebrew/opt/libpq/lib"
+      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/server")
+    if(CMAKE_INSTALL_DO_STRIP)
+      execute_process(COMMAND "/usr/bin/strip" -u -r "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/server")
+    endif()
+  endif()
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  include("/Users/mameaminataconstancesane/Desktop/myDiscord/build/CMakeFiles/server.dir/install-cxx-module-bmi-Debug.cmake" OPTIONAL)
+endif()
+
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)

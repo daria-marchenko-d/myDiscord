@@ -85,6 +85,51 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/opt/homebrew/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/opt/homebrew/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/opt/homebrew/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/opt/homebrew/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/opt/homebrew/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/opt/homebrew/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mameaminataconstancesane/Desktop/myDiscord/build/CMakeFiles /Users/mameaminataconstancesane/Desktop/myDiscord/build//CMakeFiles/progress.marks
@@ -117,41 +162,89 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named MyGTK4App
+# Target rules for targets named server
 
 # Build rule for target.
-MyGTK4App: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MyGTK4App
-.PHONY : MyGTK4App
+server: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 server
+.PHONY : server
 
 # fast build rule for target.
-MyGTK4App/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyGTK4App.dir/build.make CMakeFiles/MyGTK4App.dir/build
-.PHONY : MyGTK4App/fast
+server/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/build
+.PHONY : server/fast
 
-main.o: main.c.o
-.PHONY : main.o
+server/src/crypto.o: server/src/crypto.c.o
+.PHONY : server/src/crypto.o
 
 # target to build an object file
-main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyGTK4App.dir/build.make CMakeFiles/MyGTK4App.dir/main.c.o
-.PHONY : main.c.o
+server/src/crypto.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server/src/crypto.c.o
+.PHONY : server/src/crypto.c.o
 
-main.i: main.c.i
-.PHONY : main.i
+server/src/crypto.i: server/src/crypto.c.i
+.PHONY : server/src/crypto.i
 
 # target to preprocess a source file
-main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyGTK4App.dir/build.make CMakeFiles/MyGTK4App.dir/main.c.i
-.PHONY : main.c.i
+server/src/crypto.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server/src/crypto.c.i
+.PHONY : server/src/crypto.c.i
 
-main.s: main.c.s
-.PHONY : main.s
+server/src/crypto.s: server/src/crypto.c.s
+.PHONY : server/src/crypto.s
 
 # target to generate assembly for a file
-main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyGTK4App.dir/build.make CMakeFiles/MyGTK4App.dir/main.c.s
-.PHONY : main.c.s
+server/src/crypto.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server/src/crypto.c.s
+.PHONY : server/src/crypto.c.s
+
+server/src/db.o: server/src/db.c.o
+.PHONY : server/src/db.o
+
+# target to build an object file
+server/src/db.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server/src/db.c.o
+.PHONY : server/src/db.c.o
+
+server/src/db.i: server/src/db.c.i
+.PHONY : server/src/db.i
+
+# target to preprocess a source file
+server/src/db.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server/src/db.c.i
+.PHONY : server/src/db.c.i
+
+server/src/db.s: server/src/db.c.s
+.PHONY : server/src/db.s
+
+# target to generate assembly for a file
+server/src/db.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server/src/db.c.s
+.PHONY : server/src/db.c.s
+
+server/src/socket_serveur.o: server/src/socket_serveur.c.o
+.PHONY : server/src/socket_serveur.o
+
+# target to build an object file
+server/src/socket_serveur.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server/src/socket_serveur.c.o
+.PHONY : server/src/socket_serveur.c.o
+
+server/src/socket_serveur.i: server/src/socket_serveur.c.i
+.PHONY : server/src/socket_serveur.i
+
+# target to preprocess a source file
+server/src/socket_serveur.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server/src/socket_serveur.c.i
+.PHONY : server/src/socket_serveur.c.i
+
+server/src/socket_serveur.s: server/src/socket_serveur.c.s
+.PHONY : server/src/socket_serveur.s
+
+# target to generate assembly for a file
+server/src/socket_serveur.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server/src/socket_serveur.c.s
+.PHONY : server/src/socket_serveur.c.s
 
 # Help Target
 help:
@@ -160,11 +253,21 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... MyGTK4App"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... server"
+	@echo "... server/src/crypto.o"
+	@echo "... server/src/crypto.i"
+	@echo "... server/src/crypto.s"
+	@echo "... server/src/db.o"
+	@echo "... server/src/db.i"
+	@echo "... server/src/db.s"
+	@echo "... server/src/socket_serveur.o"
+	@echo "... server/src/socket_serveur.i"
+	@echo "... server/src/socket_serveur.s"
 .PHONY : help
 
 

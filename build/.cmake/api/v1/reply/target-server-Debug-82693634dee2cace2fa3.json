@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "MyGTK4App"
+			"path" : "server"
 		}
 	],
 	"backtrace" : 1,
@@ -11,6 +11,7 @@
 		"commands" : 
 		[
 			"add_executable",
+			"install",
 			"link_directories",
 			"target_link_libraries",
 			"include_directories"
@@ -27,25 +28,49 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 16,
+				"line" : 36,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 12,
+				"line" : 67,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 19,
+				"line" : 16,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 26,
 				"parent" : 0
 			},
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 11,
+				"line" : 38,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 15,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 25,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 37,
 				"parent" : 0
 			}
 		]
@@ -56,130 +81,143 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -std=gnu11 -arch arm64"
+					"fragment" : "-g -std=gnu99 -arch arm64"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/opt/homebrew/Cellar/gtk4/4.18.4/include/gtk-4.0"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/opt/homebrew/Cellar/pango/1.56.3/include/pango-1.0"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/opt/homebrew/Cellar/fribidi/1.0.16/include/fribidi"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/opt/homebrew/Cellar/harfbuzz/11.0.1/include/harfbuzz"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/opt/homebrew/Cellar/graphite2/1.3.14/include"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/opt/homebrew/include/gdk-pixbuf-2.0"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/opt/homebrew/opt/libtiff/include"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/opt/homebrew/opt/zstd/include"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/opt/homebrew/Cellar/xz/5.8.1/include"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/opt/homebrew/opt/jpeg-turbo/include"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/opt/homebrew/Cellar/cairo/1.18.4/include/cairo"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/opt/homebrew/Cellar/fontconfig/2.16.0/include"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/opt/homebrew/opt/freetype/include/freetype2"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/opt/homebrew/opt/libpng/include/libpng16"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/opt/homebrew/Cellar/libxext/1.3.6/include"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/opt/homebrew/Cellar/xorgproto/2024.1/include"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/opt/homebrew/Cellar/libxrender/0.9.12/include"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/opt/homebrew/Cellar/libx11/1.8.12/include"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/opt/homebrew/Cellar/libxcb/1.17.0/include"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/opt/homebrew/Cellar/libxau/1.0.12/include"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/opt/homebrew/Cellar/libxdmcp/1.1.5/include"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/opt/homebrew/Cellar/pixman/0.44.2/include/pixman-1"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/opt/homebrew/Cellar/graphene/1.10.8/include/graphene-1.0"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/opt/homebrew/Cellar/graphene/1.10.8/lib/graphene-1.0/include"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/opt/homebrew/Cellar/glib/2.84.1/include"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/ffi"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/opt/homebrew/Cellar/glib/2.84.1/include/glib-2.0"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/opt/homebrew/Cellar/glib/2.84.1/lib/glib-2.0/include"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/opt/homebrew/opt/gettext/include"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/opt/homebrew/Cellar/pcre2/10.45/include"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/opt/homebrew/opt/libpq/include"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "/Users/mameaminataconstancesane/Desktop/myDiscord/server/include"
+				},
+				{
+					"backtrace" : 5,
+					"isSystem" : true,
+					"path" : "/opt/homebrew/Cellar/openssl@3/3.4.1/include"
 				}
 			],
 			"language" : "C",
@@ -189,15 +227,31 @@
 				[
 					1
 				],
-				"standard" : "11"
+				"standard" : "99"
 			},
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				1,
+				2
 			]
 		}
 	],
-	"id" : "MyGTK4App::@6890427a1f51a3e7e1df",
+	"id" : "server::@6890427a1f51a3e7e1df",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 2,
+				"path" : "bin"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "/usr/local"
+		}
+	},
 	"link" : 
 	{
 		"commandFragments" : 
@@ -207,114 +261,74 @@
 				"role" : "flags"
 			},
 			{
-				"backtrace" : 2,
+				"backtrace" : 3,
 				"fragment" : "-L/opt/homebrew/Cellar/gtk4/4.18.4/lib",
 				"role" : "libraryPath"
 			},
 			{
-				"backtrace" : 2,
+				"backtrace" : 3,
 				"fragment" : "-L/opt/homebrew/Cellar/pango/1.56.3/lib",
 				"role" : "libraryPath"
 			},
 			{
-				"backtrace" : 2,
+				"backtrace" : 3,
 				"fragment" : "-L/opt/homebrew/Cellar/harfbuzz/11.0.1/lib",
 				"role" : "libraryPath"
 			},
 			{
-				"backtrace" : 2,
+				"backtrace" : 3,
 				"fragment" : "-L/opt/homebrew/lib",
 				"role" : "libraryPath"
 			},
 			{
-				"backtrace" : 2,
+				"backtrace" : 3,
 				"fragment" : "-L/opt/homebrew/Cellar/cairo/1.18.4/lib",
 				"role" : "libraryPath"
 			},
 			{
-				"backtrace" : 2,
+				"backtrace" : 3,
 				"fragment" : "-L/opt/homebrew/Cellar/graphene/1.10.8/lib",
 				"role" : "libraryPath"
 			},
 			{
-				"backtrace" : 2,
+				"backtrace" : 3,
 				"fragment" : "-L/opt/homebrew/Cellar/glib/2.84.1/lib",
 				"role" : "libraryPath"
 			},
 			{
-				"backtrace" : 2,
+				"backtrace" : 3,
 				"fragment" : "-L/opt/homebrew/opt/gettext/lib",
 				"role" : "libraryPath"
 			},
 			{
-				"fragment" : "-Wl,-rpath,/opt/homebrew/Cellar/gtk4/4.18.4/lib -Wl,-rpath,/opt/homebrew/Cellar/pango/1.56.3/lib -Wl,-rpath,/opt/homebrew/Cellar/harfbuzz/11.0.1/lib -Wl,-rpath,/opt/homebrew/lib -Wl,-rpath,/opt/homebrew/Cellar/cairo/1.18.4/lib -Wl,-rpath,/opt/homebrew/Cellar/graphene/1.10.8/lib -Wl,-rpath,/opt/homebrew/Cellar/glib/2.84.1/lib -Wl,-rpath,/opt/homebrew/opt/gettext/lib",
+				"backtrace" : 4,
+				"fragment" : "-L/opt/homebrew/opt/libpq/lib",
+				"role" : "libraryPath"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/opt/homebrew/Cellar/gtk4/4.18.4/lib -Wl,-rpath,/opt/homebrew/Cellar/pango/1.56.3/lib -Wl,-rpath,/opt/homebrew/Cellar/harfbuzz/11.0.1/lib -Wl,-rpath,/opt/homebrew/lib -Wl,-rpath,/opt/homebrew/Cellar/cairo/1.18.4/lib -Wl,-rpath,/opt/homebrew/Cellar/graphene/1.10.8/lib -Wl,-rpath,/opt/homebrew/Cellar/glib/2.84.1/lib -Wl,-rpath,/opt/homebrew/opt/gettext/lib -Wl,-rpath,/opt/homebrew/opt/libpq/lib",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 3,
-				"fragment" : "-lgtk-4",
+				"backtrace" : 5,
+				"fragment" : "-lpq",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 3,
-				"fragment" : "-lpangocairo-1.0",
+				"backtrace" : 5,
+				"fragment" : "/opt/homebrew/Cellar/openssl@3/3.4.1/lib/libssl.dylib",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 3,
-				"fragment" : "-lpango-1.0",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 3,
-				"fragment" : "-lharfbuzz",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 3,
-				"fragment" : "-lgdk_pixbuf-2.0",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 3,
-				"fragment" : "-lcairo-gobject",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 3,
-				"fragment" : "-lcairo",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 3,
-				"fragment" : "-lgraphene-1.0",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 3,
-				"fragment" : "-lgio-2.0",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 3,
-				"fragment" : "-lgobject-2.0",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 3,
-				"fragment" : "-lglib-2.0",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 3,
-				"fragment" : "-lintl",
+				"backtrace" : 5,
+				"fragment" : "/opt/homebrew/Cellar/openssl@3/3.4.1/lib/libcrypto.dylib",
 				"role" : "libraries"
 			}
 		],
 		"language" : "C"
 	},
-	"name" : "MyGTK4App",
-	"nameOnDisk" : "MyGTK4App",
+	"name" : "server",
+	"nameOnDisk" : "server",
 	"paths" : 
 	{
 		"build" : ".",
@@ -326,7 +340,9 @@
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				1,
+				2
 			]
 		}
 	],
@@ -335,7 +351,19 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "main.c",
+			"path" : "server/src/crypto.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "server/src/db.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "server/src/socket_serveur.c",
 			"sourceGroupIndex" : 0
 		}
 	],

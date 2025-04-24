@@ -8,7 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/mameaminataconstancesane/Desktop/myDiscord/main.c" "CMakeFiles/MyGTK4App.dir/main.c.o" "gcc" "CMakeFiles/MyGTK4App.dir/main.c.o.d"
+  "/Users/mameaminataconstancesane/Desktop/myDiscord/server/src/crypto.c" "CMakeFiles/server.dir/server/src/crypto.c.o" "gcc" "CMakeFiles/server.dir/server/src/crypto.c.o.d"
+  "/Users/mameaminataconstancesane/Desktop/myDiscord/server/src/db.c" "CMakeFiles/server.dir/server/src/db.c.o" "gcc" "CMakeFiles/server.dir/server/src/db.c.o.d"
+  "/Users/mameaminataconstancesane/Desktop/myDiscord/server/src/socket_serveur.c" "CMakeFiles/server.dir/server/src/socket_serveur.c.o" "gcc" "CMakeFiles/server.dir/server/src/socket_serveur.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

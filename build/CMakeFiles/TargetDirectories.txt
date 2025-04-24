@@ -1,3 +1,7 @@
-/Users/mameaminataconstancesane/Desktop/myDiscord/build/CMakeFiles/MyGTK4App.dir
+/Users/mameaminataconstancesane/Desktop/myDiscord/build/CMakeFiles/server.dir
 /Users/mameaminataconstancesane/Desktop/myDiscord/build/CMakeFiles/edit_cache.dir
 /Users/mameaminataconstancesane/Desktop/myDiscord/build/CMakeFiles/rebuild_cache.dir
+/Users/mameaminataconstancesane/Desktop/myDiscord/build/CMakeFiles/list_install_components.dir
+/Users/mameaminataconstancesane/Desktop/myDiscord/build/CMakeFiles/install.dir
+/Users/mameaminataconstancesane/Desktop/myDiscord/build/CMakeFiles/install/local.dir
+/Users/mameaminataconstancesane/Desktop/myDiscord/build/CMakeFiles/install/strip.dir

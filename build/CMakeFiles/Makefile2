@@ -63,11 +63,11 @@ CMAKE_BINARY_DIR = /Users/mameaminataconstancesane/Desktop/myDiscord/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/MyGTK4App.dir/all
+all: CMakeFiles/server.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
-codegen: CMakeFiles/MyGTK4App.dir/codegen
+codegen: CMakeFiles/server.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -75,40 +75,40 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/MyGTK4App.dir/clean
+clean: CMakeFiles/server.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/MyGTK4App.dir
+# Target rules for target CMakeFiles/server.dir
 
 # All Build rule for target.
-CMakeFiles/MyGTK4App.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyGTK4App.dir/build.make CMakeFiles/MyGTK4App.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyGTK4App.dir/build.make CMakeFiles/MyGTK4App.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/mameaminataconstancesane/Desktop/myDiscord/build/CMakeFiles --progress-num=1,2 "Built target MyGTK4App"
-.PHONY : CMakeFiles/MyGTK4App.dir/all
+CMakeFiles/server.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/mameaminataconstancesane/Desktop/myDiscord/build/CMakeFiles --progress-num=1,2,3,4 "Built target server"
+.PHONY : CMakeFiles/server.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/MyGTK4App.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mameaminataconstancesane/Desktop/myDiscord/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/MyGTK4App.dir/all
+CMakeFiles/server.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mameaminataconstancesane/Desktop/myDiscord/build/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/server.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mameaminataconstancesane/Desktop/myDiscord/build/CMakeFiles 0
-.PHONY : CMakeFiles/MyGTK4App.dir/rule
+.PHONY : CMakeFiles/server.dir/rule
 
 # Convenience name for target.
-MyGTK4App: CMakeFiles/MyGTK4App.dir/rule
-.PHONY : MyGTK4App
+server: CMakeFiles/server.dir/rule
+.PHONY : server
 
 # codegen rule for target.
-CMakeFiles/MyGTK4App.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyGTK4App.dir/build.make CMakeFiles/MyGTK4App.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/mameaminataconstancesane/Desktop/myDiscord/build/CMakeFiles --progress-num=1,2 "Finished codegen for target MyGTK4App"
-.PHONY : CMakeFiles/MyGTK4App.dir/codegen
+CMakeFiles/server.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/mameaminataconstancesane/Desktop/myDiscord/build/CMakeFiles --progress-num=1,2,3,4 "Finished codegen for target server"
+.PHONY : CMakeFiles/server.dir/codegen
 
 # clean rule for target.
-CMakeFiles/MyGTK4App.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyGTK4App.dir/build.make CMakeFiles/MyGTK4App.dir/clean
-.PHONY : CMakeFiles/MyGTK4App.dir/clean
+CMakeFiles/server.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/clean
+.PHONY : CMakeFiles/server.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
