@@ -15,6 +15,8 @@
         "/opt/homebrew/opt/graphene/lib/graphene-1.0/include",
         "/opt/homebrew/opt/openssl@3/include",
         "/opt/homebrew/include/postgresql@14/",
+        "/opt/homebrew/Cellar/gtk4/4.18.4/include/gtk-4.0",
+        "/opt/homebrew/opt/libpq/include",
 
         "/opt/homebrew/opt/fribidi/include/fribidi"
       ],
