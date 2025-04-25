@@ -3,38 +3,56 @@ project(mydiscord-c C)
 
 set(CMAKE_C_STANDARD 99)
 
-# Forcer l'utilisation de gcc de MSYS2 mingw64
+# Compiler configuration
 if(WIN32)
     set(CMAKE_C_COMPILER "C:/msys64/mingw64/bin/gcc.exe")
 endif()
 
-# Options UTF-8 pour éviter les soucis d'encodage
 if(CMAKE_C_COMPILER_ID STREQUAL "GNU")
     add_compile_options(-finput-charset=UTF-8 -fexec-charset=UTF-8)
 endif()
 
-# === GTK3 (via pkg-config) ===
+# GTK4
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(GTK3 REQUIRED gtk+-3.0)
-include_directories(${GTK3_INCLUDE_DIRS})
-link_directories(${GTK3_LIBRARY_DIRS})
-add_definitions(${GTK3_CFLAGS_OTHER})
+pkg_check_modules(GTK4 REQUIRED gtk4)
+include_directories(${GTK4_INCLUDE_DIRS})
+add_definitions(${GTK4_CFLAGS_OTHER})
 
-# === PostgreSQL (libpq) ===
-# Attention : adapte ce chemin si ton libpq est ailleurs
-include_directories("C:/msys64/mingw64/include")
-link_directories("C:/msys64/mingw64/lib")
-
-# OpenSSL
+# Database and crypto
 find_package(OpenSSL REQUIRED)
+find_library(PQ_LIBRARY pq REQUIRED HINTS "C:/msys64/mingw64/lib")
+include_directories("C:/msys64/mingw64/include") # Ensure include directory is present
 
-# === Server ===
-file(GLOB SERVER_SOURCES "server/src/*.c")
-add_executable(server ${SERVER_SOURCES})
-include_directories(server/include)
+# Project structure
+include_directories(
+    ${CMAKE_SOURCE_DIR}/client/include
+    ${CMAKE_SOURCE_DIR}/server/include
+)
 
-# Forcer le mode console (sinon erreur "undefined reference to WinMain")
-set(CMAKE_EXE_LINKER_FLAGS "-Wl,-subsystem,console")
+# Client executable
+add_executable(client
+    client/src/main.c
+    client/src/ui.c
+    server/src/db.c # <--- ДОДАНО ЦЕЙ РЯДОК
+)
 
-# Lier les bibliothèques
-target_link_libraries(server PRIVATE pq ws2_32 ${GTK3_LIBRARIES} OpenSSL::SSL OpenSSL::Crypto)
+target_link_libraries(client
+    ${GTK4_LIBRARIES}
+    ${PQ_LIBRARY}
+    OpenSSL::SSL
+    OpenSSL::Crypto
+)
+
+# Server executable (optional)
+if(EXISTS "${CMAKE_SOURCE_DIR}/server/src/server.c")
+    add_executable(server
+        server/src/server.c
+        server/src/db.c
+    )
+    target_link_libraries(server
+        ${PQ_LIBRARY}
+        ws2_32
+        OpenSSL::SSL
+        OpenSSL::Crypto
+    )
+endif()

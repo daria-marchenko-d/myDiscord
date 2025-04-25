@@ -117,48 +117,72 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named server
+# Target rules for targets named client
 
 # Build rule for target.
-server: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 server
-.PHONY : server
+client: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 client
+.PHONY : client
 
 # fast build rule for target.
-server/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/build
-.PHONY : server/fast
+client/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/build
+.PHONY : client/fast
 
-server/src/crypto.obj: server/src/crypto.c.obj
-.PHONY : server/src/crypto.obj
+client/src/main.obj: client/src/main.c.obj
+.PHONY : client/src/main.obj
 
 # target to build an object file
-server/src/crypto.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server/src/crypto.c.obj
-.PHONY : server/src/crypto.c.obj
+client/src/main.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/client/src/main.c.obj
+.PHONY : client/src/main.c.obj
 
-server/src/crypto.i: server/src/crypto.c.i
-.PHONY : server/src/crypto.i
+client/src/main.i: client/src/main.c.i
+.PHONY : client/src/main.i
 
 # target to preprocess a source file
-server/src/crypto.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server/src/crypto.c.i
-.PHONY : server/src/crypto.c.i
+client/src/main.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/client/src/main.c.i
+.PHONY : client/src/main.c.i
 
-server/src/crypto.s: server/src/crypto.c.s
-.PHONY : server/src/crypto.s
+client/src/main.s: client/src/main.c.s
+.PHONY : client/src/main.s
 
 # target to generate assembly for a file
-server/src/crypto.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server/src/crypto.c.s
-.PHONY : server/src/crypto.c.s
+client/src/main.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/client/src/main.c.s
+.PHONY : client/src/main.c.s
+
+client/src/ui.obj: client/src/ui.c.obj
+.PHONY : client/src/ui.obj
+
+# target to build an object file
+client/src/ui.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/client/src/ui.c.obj
+.PHONY : client/src/ui.c.obj
+
+client/src/ui.i: client/src/ui.c.i
+.PHONY : client/src/ui.i
+
+# target to preprocess a source file
+client/src/ui.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/client/src/ui.c.i
+.PHONY : client/src/ui.c.i
+
+client/src/ui.s: client/src/ui.c.s
+.PHONY : client/src/ui.s
+
+# target to generate assembly for a file
+client/src/ui.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/client/src/ui.c.s
+.PHONY : client/src/ui.c.s
 
 server/src/db.obj: server/src/db.c.obj
 .PHONY : server/src/db.obj
 
 # target to build an object file
 server/src/db.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server/src/db.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/server/src/db.c.obj
 .PHONY : server/src/db.c.obj
 
 server/src/db.i: server/src/db.c.i
@@ -166,7 +190,7 @@ server/src/db.i: server/src/db.c.i
 
 # target to preprocess a source file
 server/src/db.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server/src/db.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/server/src/db.c.i
 .PHONY : server/src/db.c.i
 
 server/src/db.s: server/src/db.c.s
@@ -174,7 +198,7 @@ server/src/db.s: server/src/db.c.s
 
 # target to generate assembly for a file
 server/src/db.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server/src/db.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/server/src/db.c.s
 .PHONY : server/src/db.c.s
 
 # Help Target
@@ -185,10 +209,13 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... server"
-	@echo "... server/src/crypto.obj"
-	@echo "... server/src/crypto.i"
-	@echo "... server/src/crypto.s"
+	@echo "... client"
+	@echo "... client/src/main.obj"
+	@echo "... client/src/main.i"
+	@echo "... client/src/main.s"
+	@echo "... client/src/ui.obj"
+	@echo "... client/src/ui.i"
+	@echo "... client/src/ui.s"
 	@echo "... server/src/db.obj"
 	@echo "... server/src/db.i"
 	@echo "... server/src/db.s"
