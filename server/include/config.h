@@ -8,7 +8,7 @@
 
 // PostgreSQL database name
 
-#define DB_NAME "mydiscord"
+#define DB_NAME "myDiscord"
 
 // PostgreSQL user
 

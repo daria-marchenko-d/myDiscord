@@ -33,7 +33,7 @@ include_directories(
 add_executable(client
     client/src/main.c
     client/src/ui.c
-    server/src/db.c # <--- ДОДАНО ЦЕЙ РЯДОК
+    server/src/db.c
 )
 
 target_link_libraries(client

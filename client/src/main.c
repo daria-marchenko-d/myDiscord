@@ -13,7 +13,14 @@ int main(int argc, char *argv[])
 
     // Create GTK application
     GtkApplication *app = gtk_application_new("org.example.mydiscord", G_APPLICATION_DEFAULT_FLAGS);
-    g_signal_connect(app, "activate", G_CALLBACK(on_app_activate), NULL);
+    if (app == NULL)
+    {
+        fprintf(stderr, "Failed to create GtkApplication.\n");
+        db_close();
+        return 1;
+    }
+
+    g_signal_connect(app, "activate", G_CALLBACK(on_app_activate), app);
 
     // Run the application
     int status = g_application_run(G_APPLICATION(app), argc, argv);
