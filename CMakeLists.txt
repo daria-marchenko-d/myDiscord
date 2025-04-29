@@ -22,8 +22,16 @@ if(NOT PostgreSQL_FOUND)
     message(FATAL_ERROR "PostgreSQL not found")
 endif()
 
-include_directories(/opt/homebrew/opt/libpq/include)
-link_directories(/opt/homebrew/opt/libpq/lib)
+# === Ici Condition Windows pour PostgreSQL ===
+if(WIN32)
+    # Chemins spécifiqus à Windows (à adapter slon ton installation)
+    include_directories("C:/Program Files/PostgreSQL/<version>/include")
+    link_directories("C:/Program Files/PostgreSQL/<version>/lib")
+else()
+    # Chemins pour macOs (ou autres systèmes non-Windows)    
+    include_directories(/opt/homebrew/opt/libpq/include)
+    link_directories(/opt/homebrew/opt/libpq/lib)
+endif()
 
 # OpenSSL
 find_package(OpenSSL REQUIRED)
