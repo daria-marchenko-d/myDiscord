@@ -19,7 +19,8 @@
 #endif
 
 #include "ui.h"
-#include "ui_callbacks.h" // ou "network.h" si tu utilises network.c/h
+#include "ui_callbacks.h"
+#include "db.h" // Ajout de l'inclusion pour la base de données
 
 #define SERVER_IP "127.0.0.1"
 #define SERVER_PORT 12345
@@ -35,12 +36,17 @@ static void on_app_shutdown(GApplication *app, gpointer user_data) {
 #endif
         sock = INVALID_SOCKET; // Réinitialiser pour éviter les doubles fermetures
     }
+    db_close(); // Fermeture de la connexion à la base de données
 }
 
 // Envoi de message brut (à compléter avec format)
 void send_message_to_server(const char *message) {
     if (sock != INVALID_SOCKET) {
-        send(sock, message, strlen(message), 0);
+        int bytes_sent = send(sock, message, strlen(message), 0);
+        if (bytes_sent == SOCKET_ERROR) {
+            perror("Erreur lors de l'envoi du message");
+            // Gérer l'erreur (par exemple, fermer la connexion)
+        }
     }
 }
 
@@ -61,6 +67,11 @@ static void on_activate(GtkApplication *app, gpointer user_data) {
 
     // Get the login and register buttons from the builder
     GtkBuilder *builder = gtk_builder_new_from_file("src/ui.glade"); // Adjust path if needed
+    if (!builder) {
+        fprintf(stderr, "Erreur lors du chargement du fichier ui.glade\n");
+        // Gérer l'erreur (par exemple, afficher un message d'erreur et quitter)
+        return;
+    }
     GtkWidget *login_button = GTK_WIDGET(gtk_builder_get_object(builder, "login_button"));
     GtkWidget *register_button = GTK_WIDGET(gtk_builder_get_object(builder, "register_button"));
 
@@ -105,6 +116,12 @@ int init_client_socket() {
 }
 
 int main(int argc, char **argv) {
+    // Initialize database connection
+    if (!db_init()) {
+        fprintf(stderr, "Failed to initialize database connection.\n");
+        return 1;
+    }
+
 #ifdef _WIN32
     WSADATA wsaData;
     int iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
@@ -120,6 +137,11 @@ int main(int argc, char **argv) {
     }
 
     GtkApplication *app = gtk_application_new("org.mydiscord.client", G_APPLICATION_FLAGS_NONE);
+    if (app == NULL) {
+        fprintf(stderr, "Failed to create GtkApplication.\n");
+        db_close();
+        return 1;
+    }
     g_signal_connect(app, "activate", G_CALLBACK(on_activate), NULL);
     g_signal_connect(app, "shutdown", G_CALLBACK(on_app_shutdown), NULL);
 
