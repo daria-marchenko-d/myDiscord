@@ -760,6 +760,12 @@ CMakeFiles/client.dir/client/src/ui.c.obj: \
  C:/msys64/mingw64/include/gtk-4.0/gtk/gtkwindowcontrols.h \
  C:/msys64/mingw64/include/gtk-4.0/gtk/gtkwindowgroup.h \
  C:/msys64/mingw64/include/gtk-4.0/gtk/gtkwindowhandle.h \
+ C:/msys64/mingw64/include/regex.h C:/msys64/mingw64/include/tre/tre.h \
+ C:/msys64/mingw64/include/tre/tre-config.h \
+ C:/msys64/mingw64/include/sys/types.h C:/msys64/mingw64/include/wchar.h \
+ C:/msys64/mingw64/include/corecrt_wctype.h \
+ C:/msys64/mingw64/include/_mingw_stat64.h \
+ C:/msys64/mingw64/include/sec_api/wchar_s.h \
  D:/Daria/Downloads/La_plateforme/курс\ logiciel/langage_c/14.04.25-05.05.25/myDiscord/server/include/db.h \
  C:/msys64/mingw64/include/libpq-fe.h \
  C:/msys64/mingw64/include/postgres_ext.h \

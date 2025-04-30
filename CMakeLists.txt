@@ -41,6 +41,7 @@ target_link_libraries(client
     ${PQ_LIBRARY}
     OpenSSL::SSL
     OpenSSL::Crypto
+    regex
 )
 
 # Server executable (optional)

@@ -1,6 +1,7 @@
 #include <gtk/gtk.h>
 #include <string.h>
 #include <stdio.h>
+#include <regex.h>
 #include "db.h"
 #include "ui.h"
 
@@ -9,6 +10,59 @@ void show_login_window(GtkApplication *app, gpointer user_data);
 void show_register_window(GtkApplication *app, gpointer user_data);
 void on_login_button_clicked(GtkWidget *widget, gpointer user_data);
 void on_register_button_clicked(GtkWidget *widget, gpointer user_data);
+
+// Validation functions
+gboolean validate_username(const char *username)
+{
+    regex_t regex;
+    int ret;
+
+    ret = regcomp(&regex, "^[A-Za-z'-]+$", REG_EXTENDED);
+    if (ret)
+        return FALSE;
+
+    ret = regexec(&regex, username, 0, NULL, 0);
+    regfree(&regex);
+
+    return ret == 0;
+}
+
+gboolean validate_email(const char *email)
+{
+    regex_t regex;
+    int ret;
+
+    ret = regcomp(&regex, "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$", REG_EXTENDED | REG_ICASE);
+    if (ret)
+        return FALSE;
+
+    ret = regexec(&regex, email, 0, NULL, 0);
+    regfree(&regex);
+
+    return ret == 0;
+}
+
+gboolean validate_password(const char *password)
+{
+    if (strlen(password) < 6 || strlen(password) > 20)
+        return FALSE;
+
+    gboolean has_upper = FALSE, has_lower = FALSE, has_digit = FALSE, has_special = FALSE;
+
+    for (const char *p = password; *p; p++)
+    {
+        if (g_ascii_isupper(*p))
+            has_upper = TRUE;
+        else if (g_ascii_islower(*p))
+            has_lower = TRUE;
+        else if (g_ascii_isdigit(*p))
+            has_digit = TRUE;
+        else
+            has_special = TRUE;
+    }
+
+    return has_upper && has_lower && has_digit && has_special;
+}
 
 // Create the main window
 GtkWidget *create_main_window(GtkApplication *app)
@@ -50,10 +104,18 @@ void on_login_button_clicked(GtkWidget *widget, gpointer user_data)
     const char *username = gtk_editable_get_text(GTK_EDITABLE(data->entry_username));
     const char *password = gtk_editable_get_text(GTK_EDITABLE(data->entry_password));
 
+    GtkWindow *parent_window = GTK_WINDOW(gtk_widget_get_root(widget));
+
+    if (!validate_email(username) || !validate_password(password))
+    {
+        GtkAlertDialog *alert = gtk_alert_dialog_new("Invalid username or password format.");
+        gtk_alert_dialog_show(alert, parent_window);
+        g_object_unref(alert);
+        return;
+    }
+
     int user_id;
     char role[20];
-
-    GtkWindow *parent_window = GTK_WINDOW(gtk_widget_get_root(widget));
 
     if (authenticate_user(username, password, &user_id, role))
     {
@@ -88,10 +150,38 @@ void on_register_button_clicked(GtkWidget *widget, gpointer user_data)
 
     GtkWindow *parent_window = GTK_WINDOW(gtk_widget_get_root(widget));
 
+    if (!validate_username(username))
+    {
+        GtkAlertDialog *alert = gtk_alert_dialog_new("Invalid username. Only Latin letters, '-' and ''' allowed.");
+        gtk_alert_dialog_show(alert, parent_window);
+        g_object_unref(alert);
+        return;
+    }
+
+    if (!validate_email(email))
+    {
+        GtkAlertDialog *alert = gtk_alert_dialog_new("Invalid email format. Must contain '@'.");
+        gtk_alert_dialog_show(alert, parent_window);
+        g_object_unref(alert);
+        return;
+    }
+
+    if (!validate_password(password))
+    {
+        GtkAlertDialog *alert = gtk_alert_dialog_new("Invalid password. 6–20 chars, 1 upper, 1 lower, 1 number, 1 symbol required.");
+        gtk_alert_dialog_show(alert, parent_window);
+        g_object_unref(alert);
+        return;
+    }
+
     if (add_user(username, "", email, password))
     {
         GtkAlertDialog *alert = gtk_alert_dialog_new("User successfully registered!");
-        gtk_alert_dialog_choose(alert, parent_window, NULL, on_register_success_response, parent_window);
+
+        g_signal_connect(alert, "response", G_CALLBACK(on_register_success_response), parent_window);
+        gtk_alert_dialog_show(alert, parent_window);
+
+        // gtk_alert_dialog_choose(alert, parent_window, NULL, on_register_success_response, parent_window);
         g_object_unref(alert);
     }
     else
@@ -113,13 +203,21 @@ GtkWidget *create_login_window(GtkApplication *app)
     gtk_window_set_child(GTK_WINDOW(window), box);
 
     GtkWidget *entry_username = gtk_entry_new();
-    gtk_entry_set_placeholder_text(GTK_ENTRY(entry_username), "Username or Email");
+    gtk_entry_set_placeholder_text(GTK_ENTRY(entry_username), "Email");
     gtk_box_append(GTK_BOX(box), entry_username);
+
+    GtkWidget *hint_username = gtk_label_new("Use only Latin letters, '-' and ''' allowed.");
+    gtk_widget_set_halign(hint_username, GTK_ALIGN_START);
+    gtk_box_append(GTK_BOX(box), hint_username);
 
     GtkWidget *entry_password = gtk_entry_new();
     gtk_entry_set_placeholder_text(GTK_ENTRY(entry_password), "Password");
     gtk_entry_set_visibility(GTK_ENTRY(entry_password), FALSE);
     gtk_box_append(GTK_BOX(box), entry_password);
+
+    GtkWidget *hint_password = gtk_label_new("6–20 chars, 1 uppercase, 1 lowercase, 1 digit, 1 symbol.");
+    gtk_widget_set_halign(hint_password, GTK_ALIGN_START);
+    gtk_box_append(GTK_BOX(box), hint_password);
 
     GtkWidget *login_button = gtk_button_new_with_label("Log In");
 
@@ -152,14 +250,26 @@ GtkWidget *create_register_window(GtkApplication *app)
     gtk_entry_set_placeholder_text(GTK_ENTRY(entry_username), "Username");
     gtk_box_append(GTK_BOX(box), entry_username);
 
+    GtkWidget *hint_username = gtk_label_new("Use only Latin letters, '-' and ''' allowed.");
+    gtk_widget_set_halign(hint_username, GTK_ALIGN_START);
+    gtk_box_append(GTK_BOX(box), hint_username);
+
     GtkWidget *entry_email = gtk_entry_new();
     gtk_entry_set_placeholder_text(GTK_ENTRY(entry_email), "Email");
     gtk_box_append(GTK_BOX(box), entry_email);
+
+    GtkWidget *hint_email = gtk_label_new("Must include '@'.");
+    gtk_widget_set_halign(hint_email, GTK_ALIGN_START);
+    gtk_box_append(GTK_BOX(box), hint_email);
 
     GtkWidget *entry_password = gtk_entry_new();
     gtk_entry_set_placeholder_text(GTK_ENTRY(entry_password), "Password");
     gtk_entry_set_visibility(GTK_ENTRY(entry_password), FALSE);
     gtk_box_append(GTK_BOX(box), entry_password);
+
+    GtkWidget *hint_password = gtk_label_new("6–20 chars, 1 uppercase, 1 lowercase, 1 digit, 1 symbol.");
+    gtk_widget_set_halign(hint_password, GTK_ALIGN_START);
+    gtk_box_append(GTK_BOX(box), hint_password);
 
     RegisterData *reg_data = g_new(RegisterData, 1);
     reg_data->app = app;
