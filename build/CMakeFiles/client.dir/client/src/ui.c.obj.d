@@ -1,5 +1,5 @@
 CMakeFiles/client.dir/client/src/ui.c.obj: \
- D:/Daria/Downloads/La_plateforme/курс\ logiciel/langage_c/14.04.25-05.05.25/myDiscord/client/src/ui.c \
+ D:\Daria\Downloads\La_plateforme\logiciel\langage_c\14.04.25-05.05.25\myDiscord\client\src\ui.c \
  C:/msys64/mingw64/include/gtk-4.0/gtk/gtk.h \
  C:/msys64/mingw64/include/gtk-4.0/gtk/css/gtkcss.h \
  C:/msys64/mingw64/include/glib-2.0/glib.h \
@@ -766,8 +766,10 @@ CMakeFiles/client.dir/client/src/ui.c.obj: \
  C:/msys64/mingw64/include/corecrt_wctype.h \
  C:/msys64/mingw64/include/_mingw_stat64.h \
  C:/msys64/mingw64/include/sec_api/wchar_s.h \
- D:/Daria/Downloads/La_plateforme/курс\ logiciel/langage_c/14.04.25-05.05.25/myDiscord/server/include/db.h \
+ D:/Daria/Downloads/La_plateforme/logiciel/langage_c/14.04.25-05.05.25/myDiscord/server/include/db.h \
+ D:/Daria/Downloads/La_plateforme/logiciel/langage_c/14.04.25-05.05.25/myDiscord/server/include/crypto.h \
  C:/msys64/mingw64/include/libpq-fe.h \
  C:/msys64/mingw64/include/postgres_ext.h \
  C:/msys64/mingw64/include/pg_config_ext.h \
- D:/Daria/Downloads/La_plateforme/курс\ logiciel/langage_c/14.04.25-05.05.25/myDiscord/client/include/ui.h
+ D:/Daria/Downloads/La_plateforme/logiciel/langage_c/14.04.25-05.05.25/myDiscord/client/include/ui.h \
+ D:/Daria/Downloads/La_plateforme/logiciel/langage_c/14.04.25-05.05.25/myDiscord/client/include/ui_callback.h

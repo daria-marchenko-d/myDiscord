@@ -2,13 +2,12 @@ myDiscord.sql: --Users table
 
 CREATE TABLE UserAccount (user_id SERIAL PRIMARY KEY,
                                                  first_name VARCHAR(50),
-                                                            last_name VARCHAR(50),
-                                                                      email VARCHAR(100) UNIQUE NOT NULL,
-                                                                                                password_hash TEXT NOT NULL,
-                                                                                                                   role VARCHAR(20) CHECK (role IN ('user',
-                                                                                                                                                    'moderator',
-                                                                                                                                                    'administrator')) DEFAULT 'user',
-                                                                                                                                                                              status VARCHAR(20) DEFAULT 'online' -- online, away, busy
+                                                            email VARCHAR(100) UNIQUE NOT NULL,
+                                                                                      password_hash TEXT NOT NULL,
+                                                                                                         role VARCHAR(20) CHECK (role IN ('user',
+                                                                                                                                          'moderator',
+                                                                                                                                          'administrator')) DEFAULT 'user',
+                                                                                                                                                                    status VARCHAR(20) DEFAULT 'online' -- online, away, busy
  );
 
 --Channels table

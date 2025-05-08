@@ -4,10 +4,9 @@ project(mydiscord-c C)
 set(CMAKE_C_STANDARD 99)
 
 # Compiler configuration
-if(WIN32)
-    set(CMAKE_C_COMPILER "C:/msys64/mingw64/bin/gcc.exe")
-endif()
-
+# if(WIN32)
+# set(CMAKE_C_COMPILER "C:/msys64/mingw64/bin/gcc.exe")
+# endif()
 if(CMAKE_C_COMPILER_ID STREQUAL "GNU")
     add_compile_options(-finput-charset=UTF-8 -fexec-charset=UTF-8)
 endif()
@@ -19,7 +18,7 @@ include_directories(${GTK4_INCLUDE_DIRS})
 add_definitions(${GTK4_CFLAGS_OTHER})
 
 # Database and crypto
-find_package(OpenSSL REQUIRED)
+# find_package(OpenSSL REQUIRED)
 find_library(PQ_LIBRARY pq REQUIRED HINTS "C:/msys64/mingw64/lib")
 include_directories("C:/msys64/mingw64/include") # Ensure include directory is present
 
@@ -39,8 +38,9 @@ add_executable(client
 target_link_libraries(client
     ${GTK4_LIBRARIES}
     ${PQ_LIBRARY}
-    OpenSSL::SSL
-    OpenSSL::Crypto
+
+    # OpenSSL::SSL
+    # OpenSSL::Crypto
     regex
 )
 
@@ -53,7 +53,8 @@ if(EXISTS "${CMAKE_SOURCE_DIR}/server/src/server.c")
     target_link_libraries(server
         ${PQ_LIBRARY}
         ws2_32
-        OpenSSL::SSL
-        OpenSSL::Crypto
+
+        # OpenSSL::SSL
+        # OpenSSL::Crypto
     )
 endif()

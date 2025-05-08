@@ -5,9 +5,8 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "C:/msys64/mingw64/include/**",
-                "C:/msys64/mingw64/lib/**",
                 "C:/msys64/mingw64/include/gtk-4.0",
-                "${workspaceFolder}/server/include",
+                "C:/msys64/mingw64/lib/**",
                 "${workspaceFolder}/client/include"
             ],
             "defines": [
@@ -15,7 +14,7 @@
                 "UNICODE",
                 "_UNICODE"
             ],
-            "compilerPath": "C:/msys64/ucrt64/bin/gcc.exe",
+            "compilerPath": "C:\\msys64\\ucrt64\\bin\\gcc.exe",
             "cStandard": "c17",
             "cppStandard": "gnu++17",
             "intelliSenseMode": "windows-gcc-x64"

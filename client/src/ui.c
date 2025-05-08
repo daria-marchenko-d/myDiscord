@@ -4,6 +4,14 @@
 #include <regex.h>
 #include "db.h"
 #include "ui.h"
+#include "ui_callback.h"
+
+GtkWidget *window;
+GtkWidget *list_box_channels;
+GtkWidget *text_view_chat;
+GtkWidget *entry_message;
+GtkWidget *label_users;
+char current_channel[64] = "";
 
 // Functions
 void show_login_window(GtkApplication *app, gpointer user_data);
@@ -65,7 +73,7 @@ gboolean validate_password(const char *password)
 }
 
 // Create the main window
-GtkWidget *create_main_window(GtkApplication *app)
+GtkWidget *create_welcome_window(GtkApplication *app)
 {
     GtkWidget *window = gtk_application_window_new(app);
     gtk_window_set_title(GTK_WINDOW(window), "Welcome to MyDiscord");
@@ -83,6 +91,39 @@ GtkWidget *create_main_window(GtkApplication *app)
     gtk_box_append(GTK_BOX(box), register_button);
 
     return window;
+}
+
+// Fonction pour créer la fenêtre principale
+GtkWidget *create_main_window(GtkApplication *app)
+{
+    window = gtk_application_window_new(app);
+    gtk_window_set_title(GTK_WINDOW(window), "Mydiscord");
+    gtk_window_set_default_size(GTK_WINDOW(window), 800, 600);
+
+    GtkWidget *main_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);
+    gtk_window_set_child(GTK_WINDOW(window), main_box);
+
+    // Liste des canaux
+    list_box_channels = gtk_list_box_new();
+    gtk_list_box_set_selection_mode(GTK_LIST_BOX(list_box_channels), GTK_SELECTION_SINGLE);
+    g_signal_connect(list_box_channels, "row-selected", G_CALLBACK(on_channel_selected), NULL);
+    gtk_box_append(GTK_BOX(main_box), list_box_channels);
+
+    // Affichage des messages
+    text_view_chat = gtk_text_view_new();
+    gtk_text_view_set_editable(GTK_TEXT_VIEW(text_view_chat), FALSE);
+    gtk_box_append(GTK_BOX(main_box), text_view_chat);
+
+    // Zone de saisie de message
+    entry_message = gtk_entry_new();
+    gtk_box_append(GTK_BOX(main_box), entry_message);
+    g_signal_connect(entry_message, "activate", G_CALLBACK(on_send_button_clicked), NULL);
+
+    // Label pour la liste des utilisateurs du canal
+    label_users = gtk_label_new("Utilisateurs:");
+    gtk_box_append(GTK_BOX(main_box), label_users);
+
+    gtk_widget_show(window);
 }
 
 // Helper function: handle login success dialog response
@@ -117,7 +158,7 @@ void on_login_button_clicked(GtkWidget *widget, gpointer user_data)
     int user_id;
     char role[20];
 
-    if (authenticate_user(username, password, &user_id, role))
+    if (authenticate_user(username, password))
     {
         GtkAlertDialog *alert = gtk_alert_dialog_new("Successfully logged in!");
         g_object_set_data(G_OBJECT(alert), "app", data->app);
@@ -174,7 +215,7 @@ void on_register_button_clicked(GtkWidget *widget, gpointer user_data)
         return;
     }
 
-    if (add_user(username, "", email, password))
+    if (add_user(username, email, password))
     {
         GtkAlertDialog *alert = gtk_alert_dialog_new("User successfully registered!");
 
@@ -190,6 +231,78 @@ void on_register_button_clicked(GtkWidget *widget, gpointer user_data)
         gtk_alert_dialog_show(alert, parent_window);
         g_object_unref(alert);
     }
+}
+
+// Nelson's code
+
+// Fonction pour mettre à jour la liste des canaux
+void update_channel_list(const char **channels, int num_channels)
+{
+    gtk_list_box_remove_all(GTK_LIST_BOX(list_box_channels));
+
+    for (int i = 0; i < num_channels; ++i)
+    {
+        GtkWidget *label = gtk_label_new(channels[i]);
+        gtk_list_box_insert(GTK_LIST_BOX(list_box_channels), label, -1);
+    }
+
+    gtk_widget_show(list_box_channels);
+}
+
+// Fonction appelée lorsqu'un canal est sélectionné
+void on_channel_selected(GtkListBox *box, GtkListBoxRow *row, gpointer data)
+{
+    if (!row)
+        return;
+
+    GtkWidget *child = gtk_list_box_row_get_child(row);
+    const char *channel = gtk_label_get_text(GTK_LABEL(child));
+
+    strncpy(current_channel, channel, sizeof(current_channel));
+    current_channel[sizeof(current_channel) - 1] = '\0';
+
+    request_channel_history(current_channel); // Demander l'historique des messages
+    request_channel_users(current_channel);   // Demander la liste des utilisateurs
+}
+
+// Fonction pour envoyer un message au serveur
+void on_send_button_clicked(GtkWidget *widget, gpointer data)
+{
+    const char *message = gtk_entry_get_text(GTK_ENTRY(entry_message));
+    if (strlen(message) == 0 || strlen(current_channel) == 0)
+        return;
+
+    char buffer[512];
+    snprintf(buffer, sizeof(buffer), "MSG|%s|%s", current_channel, message);
+    send_message_to_server(buffer);
+
+    gtk_entry_set_text(GTK_ENTRY(entry_message), "");
+}
+
+// Fonction pour ajouter un message à la vue de chat
+void append_message_to_view(const char *message)
+{
+    GtkTextBuffer *buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(text_view_chat));
+
+    GtkTextIter end;
+    gtk_text_buffer_get_end_iter(buffer, &end);
+
+    // Format du message
+    char formatted[512];
+    snprintf(formatted, sizeof(formatted), "%s\n", message);
+
+    // Insertion du message dans la vue
+    gtk_text_buffer_insert(buffer, &end, formatted, -1);
+    gtk_text_view_scroll_to_iter(GTK_TEXT_VIEW(text_view_chat), &end, 0.0, FALSE, 0, 0);
+}
+
+// Fonction pour afficher la liste des utilisateurs dans le canal actif
+void show_channel_users(const char *users_list)
+{
+    // Mise à jour du label pour afficher la liste des utilisateurs
+    char formatted[1024];
+    snprintf(formatted, sizeof(formatted), "Utilisateurs:\n%s", users_list);
+    gtk_label_set_text(GTK_LABEL(label_users), formatted);
 }
 
 // Create the login window
@@ -305,6 +418,6 @@ void show_register_window(GtkApplication *app, gpointer user_data)
 // Application activation
 void on_app_activate(GtkApplication *app, gpointer user_data)
 {
-    GtkWidget *window = create_main_window(app);
+    GtkWidget *window = create_welcome_window(app);
     gtk_window_present(GTK_WINDOW(window));
 }

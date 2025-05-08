@@ -1,3 +1,3 @@
-D:/Daria/Downloads/La_plateforme/курс logiciel/langage_c/14.04.25-05.05.25/myDiscord/build/CMakeFiles/client.dir
-D:/Daria/Downloads/La_plateforme/курс logiciel/langage_c/14.04.25-05.05.25/myDiscord/build/CMakeFiles/edit_cache.dir
-D:/Daria/Downloads/La_plateforme/курс logiciel/langage_c/14.04.25-05.05.25/myDiscord/build/CMakeFiles/rebuild_cache.dir
+D:/Daria/Downloads/La_plateforme/logiciel/langage_c/14.04.25-05.05.25/myDiscord/build/CMakeFiles/client.dir
+D:/Daria/Downloads/La_plateforme/logiciel/langage_c/14.04.25-05.05.25/myDiscord/build/CMakeFiles/edit_cache.dir
+D:/Daria/Downloads/La_plateforme/logiciel/langage_c/14.04.25-05.05.25/myDiscord/build/CMakeFiles/rebuild_cache.dir

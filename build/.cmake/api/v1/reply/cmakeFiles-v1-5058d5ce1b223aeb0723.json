@@ -155,28 +155,13 @@
 			"isCMake" : true,
 			"isExternal" : true,
 			"path" : "D:/Program Files/CMake/share/cmake-4.0/Modules/FindPackageMessage.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "D:/Program Files/CMake/share/cmake-4.0/Modules/FindOpenSSL.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "D:/Program Files/CMake/share/cmake-4.0/Modules/FindPackageHandleStandardArgs.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "D:/Program Files/CMake/share/cmake-4.0/Modules/FindPackageMessage.cmake"
 		}
 	],
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "D:/Daria/Downloads/La_plateforme/\u043a\u0443\u0440\u0441 logiciel/langage_c/14.04.25-05.05.25/myDiscord/build",
-		"source" : "D:/Daria/Downloads/La_plateforme/\u043a\u0443\u0440\u0441 logiciel/langage_c/14.04.25-05.05.25/myDiscord"
+		"build" : "D:/Daria/Downloads/La_plateforme/logiciel/langage_c/14.04.25-05.05.25/myDiscord/build",
+		"source" : "D:/Daria/Downloads/La_plateforme/logiciel/langage_c/14.04.25-05.05.25/myDiscord"
 	},
 	"version" : 
 	{

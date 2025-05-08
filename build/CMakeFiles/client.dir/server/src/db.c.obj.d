@@ -1,5 +1,5 @@
 CMakeFiles/client.dir/server/src/db.c.obj: \
- D:/Daria/Downloads/La_plateforme/курс\ logiciel/langage_c/14.04.25-05.05.25/myDiscord/server/src/db.c \
+ D:\Daria\Downloads\La_plateforme\logiciel\langage_c\14.04.25-05.05.25\myDiscord\server\src\db.c \
  C:/msys64/mingw64/include/libpq-fe.h C:/msys64/mingw64/include/stdio.h \
  C:/msys64/mingw64/include/corecrt_stdio_config.h \
  C:/msys64/mingw64/include/corecrt.h C:/msys64/mingw64/include/_mingw.h \
@@ -12,7 +12,8 @@ CMakeFiles/client.dir/server/src/db.c.obj: \
  C:/msys64/mingw64/include/sec_api/stdio_s.h \
  C:/msys64/mingw64/include/postgres_ext.h \
  C:/msys64/mingw64/include/pg_config_ext.h \
- D:/Daria/Downloads/La_plateforme/курс\ logiciel/langage_c/14.04.25-05.05.25/myDiscord/server/include/db.h \
+ D:/Daria/Downloads/La_plateforme/logiciel/langage_c/14.04.25-05.05.25/myDiscord/server/include/db.h \
+ D:/Daria/Downloads/La_plateforme/logiciel/langage_c/14.04.25-05.05.25/myDiscord/server/include/crypto.h \
  C:/msys64/mingw64/include/stdlib.h \
  C:/msys64/mingw64/include/corecrt_wstdlib.h \
  C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/limits.h \

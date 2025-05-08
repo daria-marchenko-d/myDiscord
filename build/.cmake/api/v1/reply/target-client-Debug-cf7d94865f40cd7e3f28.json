@@ -31,29 +31,23 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 33,
+				"line" : 32,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 39,
+				"line" : 38,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 12,
+				"line" : 11,
 				"parent" : 0
 			},
 			{
 				"command" : 3,
-				"file" : 0,
-				"line" : 19,
-				"parent" : 0
-			},
-			{
-				"command" : 4,
 				"file" : 0,
 				"line" : 18,
 				"parent" : 0
@@ -61,7 +55,13 @@
 			{
 				"command" : 4,
 				"file" : 0,
-				"line" : 27,
+				"line" : 17,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 26,
 				"parent" : 0
 			}
 		]
@@ -150,11 +150,11 @@
 				},
 				{
 					"backtrace" : 6,
-					"path" : "D:/Daria/Downloads/La_plateforme/\u043a\u0443\u0440\u0441 logiciel/langage_c/14.04.25-05.05.25/myDiscord/client/include"
+					"path" : "D:/Daria/Downloads/La_plateforme/logiciel/langage_c/14.04.25-05.05.25/myDiscord/client/include"
 				},
 				{
 					"backtrace" : 6,
-					"path" : "D:/Daria/Downloads/La_plateforme/\u043a\u0443\u0440\u0441 logiciel/langage_c/14.04.25-05.05.25/myDiscord/server/include"
+					"path" : "D:/Daria/Downloads/La_plateforme/logiciel/langage_c/14.04.25-05.05.25/myDiscord/server/include"
 				}
 			],
 			"language" : "C",
@@ -255,17 +255,7 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:/msys64/mingw64/lib/libpq.dll.a",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 2,
-				"fragment" : "C:/msys64/mingw64/lib/libssl.dll.a",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 2,
-				"fragment" : "C:/msys64/mingw64/lib/libcrypto.dll.a",
+				"fragment" : "C:\\msys64\\mingw64\\lib\\libpq.dll.a",
 				"role" : "libraries"
 			},
 			{
