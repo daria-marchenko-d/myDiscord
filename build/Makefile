@@ -176,6 +176,30 @@ client/src/ui.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/ui.c.s
 .PHONY : client/src/ui.c.s
 
+client/src/ui_callback.obj: client/src/ui_callback.c.obj
+.PHONY : client/src/ui_callback.obj
+
+# target to build an object file
+client/src/ui_callback.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/ui_callback.c.obj
+.PHONY : client/src/ui_callback.c.obj
+
+client/src/ui_callback.i: client/src/ui_callback.c.i
+.PHONY : client/src/ui_callback.i
+
+# target to preprocess a source file
+client/src/ui_callback.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/ui_callback.c.i
+.PHONY : client/src/ui_callback.c.i
+
+client/src/ui_callback.s: client/src/ui_callback.c.s
+.PHONY : client/src/ui_callback.s
+
+# target to generate assembly for a file
+client/src/ui_callback.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/ui_callback.c.s
+.PHONY : client/src/ui_callback.c.s
+
 server/src/db.obj: server/src/db.c.obj
 .PHONY : server/src/db.obj
 
@@ -215,6 +239,9 @@ help:
 	@echo ... client/src/ui.obj
 	@echo ... client/src/ui.i
 	@echo ... client/src/ui.s
+	@echo ... client/src/ui_callback.obj
+	@echo ... client/src/ui_callback.i
+	@echo ... client/src/ui_callback.s
 	@echo ... server/src/db.obj
 	@echo ... server/src/db.i
 	@echo ... server/src/db.s

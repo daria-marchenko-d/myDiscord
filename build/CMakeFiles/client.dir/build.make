@@ -101,11 +101,26 @@ CMakeFiles/client.dir/client/src/ui.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/client.dir/client/src/ui.c.s"
 	C:\msys64\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Daria\Downloads\La_plateforme\logiciel\langage_c\14.04.25-05.05.25\myDiscord\client\src\ui.c -o CMakeFiles\client.dir\client\src\ui.c.s
 
+CMakeFiles/client.dir/client/src/ui_callback.c.obj: CMakeFiles/client.dir/flags.make
+CMakeFiles/client.dir/client/src/ui_callback.c.obj: CMakeFiles/client.dir/includes_C.rsp
+CMakeFiles/client.dir/client/src/ui_callback.c.obj: D:/Daria/Downloads/La_plateforme/logiciel/langage_c/14.04.25-05.05.25/myDiscord/client/src/ui_callback.c
+CMakeFiles/client.dir/client/src/ui_callback.c.obj: CMakeFiles/client.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Daria\Downloads\La_plateforme\logiciel\langage_c\14.04.25-05.05.25\myDiscord\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/client.dir/client/src/ui_callback.c.obj"
+	C:\msys64\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/client.dir/client/src/ui_callback.c.obj -MF CMakeFiles\client.dir\client\src\ui_callback.c.obj.d -o CMakeFiles\client.dir\client\src\ui_callback.c.obj -c D:\Daria\Downloads\La_plateforme\logiciel\langage_c\14.04.25-05.05.25\myDiscord\client\src\ui_callback.c
+
+CMakeFiles/client.dir/client/src/ui_callback.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/client.dir/client/src/ui_callback.c.i"
+	C:\msys64\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Daria\Downloads\La_plateforme\logiciel\langage_c\14.04.25-05.05.25\myDiscord\client\src\ui_callback.c > CMakeFiles\client.dir\client\src\ui_callback.c.i
+
+CMakeFiles/client.dir/client/src/ui_callback.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/client.dir/client/src/ui_callback.c.s"
+	C:\msys64\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Daria\Downloads\La_plateforme\logiciel\langage_c\14.04.25-05.05.25\myDiscord\client\src\ui_callback.c -o CMakeFiles\client.dir\client\src\ui_callback.c.s
+
 CMakeFiles/client.dir/server/src/db.c.obj: CMakeFiles/client.dir/flags.make
 CMakeFiles/client.dir/server/src/db.c.obj: CMakeFiles/client.dir/includes_C.rsp
 CMakeFiles/client.dir/server/src/db.c.obj: D:/Daria/Downloads/La_plateforme/logiciel/langage_c/14.04.25-05.05.25/myDiscord/server/src/db.c
 CMakeFiles/client.dir/server/src/db.c.obj: CMakeFiles/client.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Daria\Downloads\La_plateforme\logiciel\langage_c\14.04.25-05.05.25\myDiscord\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/client.dir/server/src/db.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Daria\Downloads\La_plateforme\logiciel\langage_c\14.04.25-05.05.25\myDiscord\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/client.dir/server/src/db.c.obj"
 	C:\msys64\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/client.dir/server/src/db.c.obj -MF CMakeFiles\client.dir\server\src\db.c.obj.d -o CMakeFiles\client.dir\server\src\db.c.obj -c D:\Daria\Downloads\La_plateforme\logiciel\langage_c\14.04.25-05.05.25\myDiscord\server\src\db.c
 
 CMakeFiles/client.dir/server/src/db.c.i: cmake_force
@@ -120,6 +135,7 @@ CMakeFiles/client.dir/server/src/db.c.s: cmake_force
 client_OBJECTS = \
 "CMakeFiles/client.dir/client/src/main.c.obj" \
 "CMakeFiles/client.dir/client/src/ui.c.obj" \
+"CMakeFiles/client.dir/client/src/ui_callback.c.obj" \
 "CMakeFiles/client.dir/server/src/db.c.obj"
 
 # External object files for target client
@@ -127,13 +143,14 @@ client_EXTERNAL_OBJECTS =
 
 client.exe: CMakeFiles/client.dir/client/src/main.c.obj
 client.exe: CMakeFiles/client.dir/client/src/ui.c.obj
+client.exe: CMakeFiles/client.dir/client/src/ui_callback.c.obj
 client.exe: CMakeFiles/client.dir/server/src/db.c.obj
 client.exe: CMakeFiles/client.dir/build.make
 client.exe: C:/msys64/mingw64/lib/libpq.dll.a
 client.exe: CMakeFiles/client.dir/linkLibs.rsp
 client.exe: CMakeFiles/client.dir/objects1.rsp
 client.exe: CMakeFiles/client.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\Daria\Downloads\La_plateforme\logiciel\langage_c\14.04.25-05.05.25\myDiscord\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable client.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\Daria\Downloads\La_plateforme\logiciel\langage_c\14.04.25-05.05.25\myDiscord\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable client.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\client.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

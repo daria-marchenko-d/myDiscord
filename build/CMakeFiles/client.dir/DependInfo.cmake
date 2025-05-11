@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "D:/Daria/Downloads/La_plateforme/logiciel/langage_c/14.04.25-05.05.25/myDiscord/client/src/main.c" "CMakeFiles/client.dir/client/src/main.c.obj" "gcc" "CMakeFiles/client.dir/client/src/main.c.obj.d"
   "D:/Daria/Downloads/La_plateforme/logiciel/langage_c/14.04.25-05.05.25/myDiscord/client/src/ui.c" "CMakeFiles/client.dir/client/src/ui.c.obj" "gcc" "CMakeFiles/client.dir/client/src/ui.c.obj.d"
+  "D:/Daria/Downloads/La_plateforme/logiciel/langage_c/14.04.25-05.05.25/myDiscord/client/src/ui_callback.c" "CMakeFiles/client.dir/client/src/ui_callback.c.obj" "gcc" "CMakeFiles/client.dir/client/src/ui_callback.c.obj.d"
   "D:/Daria/Downloads/La_plateforme/logiciel/langage_c/14.04.25-05.05.25/myDiscord/server/src/db.c" "CMakeFiles/client.dir/server/src/db.c.obj" "gcc" "CMakeFiles/client.dir/server/src/db.c.obj.d"
   )
 

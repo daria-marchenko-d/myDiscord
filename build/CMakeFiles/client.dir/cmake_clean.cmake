@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/client.dir/client/src/main.c.obj.d"
   "CMakeFiles/client.dir/client/src/ui.c.obj"
   "CMakeFiles/client.dir/client/src/ui.c.obj.d"
+  "CMakeFiles/client.dir/client/src/ui_callback.c.obj"
+  "CMakeFiles/client.dir/client/src/ui_callback.c.obj.d"
   "CMakeFiles/client.dir/server/src/db.c.obj"
   "CMakeFiles/client.dir/server/src/db.c.obj.d"
   "client.exe"

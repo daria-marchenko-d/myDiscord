@@ -3,6 +3,9 @@
 
 #include <gtk/gtk.h>
 
+int connect_to_server(const char *ip, int port);
+void *receive_messages(void *arg);
+
 // Registration structure
 typedef struct
 {
@@ -31,6 +34,9 @@ void on_login_button_clicked(GtkWidget *widget, gpointer user_data);
 void on_register_button_clicked(GtkWidget *widget, gpointer user_data);
 void on_app_activate(GtkApplication *app, gpointer user_data);
 
+void show_info_dialog(GtkWindow *parent, const char *message);
+gboolean show_info_dialog_idle(gpointer data);
+
 // === Main chat window and messaging ===
 void update_channel_list(const char **channels, int num_channels);
 void append_message_to_view(const char *username, const char *message);
@@ -38,6 +44,7 @@ void request_channel_history(const char *channel);
 void show_channel_users(const char *users_list);
 void request_channel_users(const char *channel_name);
 void send_to_server(const char *message);
+void send_message_to_server(const char *message);
 
 // === Channel and message callbacks ===
 void on_send_button_clicked(GtkWidget *widget, gpointer data);
@@ -47,5 +54,6 @@ void on_channel_selected(GtkListBox *box, GtkListBoxRow *row, gpointer user_data
 extern GtkWidget *entry_message;
 extern GtkWidget *text_view_chat;
 extern GtkWidget *list_box_channels;
+extern GtkWidget *window;
 
 #endif

@@ -284,23 +284,6 @@ void on_send_button_clicked(GtkWidget *widget, gpointer data)
     gtk_editable_set_text(GTK_EDITABLE(entry_message), "");
 }
 
-// Fonction pour ajouter un message à la vue de chat
-// void append_message_to_view(const char *message)
-// {
-//     GtkTextBuffer *buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(text_view_chat));
-
-//     GtkTextIter end;
-//     gtk_text_buffer_get_end_iter(buffer, &end);
-
-//     // Format du message
-//     char formatted[512];
-//     snprintf(formatted, sizeof(formatted), "%s\n", message);
-
-//     // Insertion du message dans la vue
-//     gtk_text_buffer_insert(buffer, &end, formatted, -1);
-//     gtk_text_view_scroll_to_iter(GTK_TEXT_VIEW(text_view_chat), &end, 0.0, FALSE, 0, 0);
-// }
-
 void append_message_to_view(const char *username, const char *message)
 {
     GtkWidget *message_container = gtk_box_new(GTK_ORIENTATION_VERTICAL, 2);
@@ -453,32 +436,6 @@ void on_app_activate(GtkApplication *app, gpointer user_data)
     gtk_window_present(GTK_WINDOW(window));
 }
 
-// gboolean on_message_right_click(GtkWidget *widget, GdkEvent *event, gpointer user_data)
-// {
-//     if (event->type == GDK_BUTTON_PRESS && event->button == 3) // Right-click
-//     {
-//         GtkWidget *emoji_menu = create_emoji_selector("1"); // TODO: замінити "1" на реальний message_id
-//         gtk_menu_popup_at_pointer(GTK_MENU(emoji_menu), (GdkEvent *)event);
-//         return TRUE;
-//     }
-//     return FALSE;
-// }
-
-// gboolean on_message_right_click(GtkWidget *widget, GdkEvent *event, gpointer user_data)
-// {
-//     if (event->type == GDK_BUTTON_PRESS)
-//     {
-//         GdkEventButton *button_event = (GdkEventButton *)event;
-//         if (button_event->button == GDK_BUTTON_SECONDARY) // Right click
-//         {
-//             GtkWidget *menu = create_emoji_selector("1"); // Replace with actual message ID
-//             gtk_menu_popup_at_pointer(GTK_MENU(menu), (GdkEvent *)event);
-//             return TRUE;
-//         }
-//     }
-//     return FALSE;
-// }
-
 GtkWidget *create_emoji_selector(GtkWidget *parent_widget, GtkApplicationWindow *window, const char *message_id)
 {
     // Список смайлів
@@ -523,19 +480,6 @@ GtkWidget *create_emoji_selector(GtkWidget *parent_widget, GtkApplicationWindow 
     return popover;
 }
 
-// void send_reaction_request(GtkMenuItem *item, gpointer user_data)
-// {
-//     const char *message_id = g_object_get_data(G_OBJECT(item), "message_id");
-//     const char *emoji = g_object_get_data(G_OBJECT(item), "emoji");
-
-//     if (strlen(current_channel) == 0)
-//         return;
-
-//     char buffer[256];
-//     snprintf(buffer, sizeof(buffer), "REACT|%s|%s|%s", current_channel, message_id, emoji);
-//     send_message_to_server(buffer);
-// }
-
 void send_reaction_request(GtkWidget *widget, gpointer user_data)
 {
     const char *message_id = g_object_get_data(G_OBJECT(widget), "message_id");
@@ -553,7 +497,7 @@ void send_reaction_request(GtkWidget *widget, gpointer user_data)
     // 🛰️ Example of sending a reaction — modify with your actual socket/API call
     char request[256];
     snprintf(request, sizeof(request), "REACT %s %s\n", message_id, emoji);
-    send_to_server(request);
+    send_message_to_server(request);
 }
 
 void update_message_reactions(const char *message_id, const char *emoji, int count)
@@ -579,3 +523,92 @@ void update_message_reactions(const char *message_id, const char *emoji, int cou
         container = gtk_widget_get_next_sibling(container);
     }
 }
+
+void show_info_dialog(GtkWindow *parent, const char *message)
+{
+    GtkWidget *dialog = gtk_window_new();
+    gtk_window_set_title(GTK_WINDOW(dialog), "Information");
+    gtk_window_set_modal(GTK_WINDOW(dialog), TRUE);
+    gtk_window_set_transient_for(GTK_WINDOW(dialog), parent);
+    gtk_window_set_resizable(GTK_WINDOW(dialog), FALSE);
+    gtk_window_set_default_size(GTK_WINDOW(dialog), 300, 100);
+
+    GtkWidget *box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 10);
+    gtk_widget_set_margin_top(box, 20);
+    gtk_widget_set_margin_bottom(box, 20);
+    gtk_widget_set_margin_start(box, 20);
+    gtk_widget_set_margin_end(box, 20);
+    gtk_window_set_child(GTK_WINDOW(dialog), box);
+
+    GtkWidget *label = gtk_label_new(message);
+    gtk_box_append(GTK_BOX(box), label);
+
+    GtkWidget *button = gtk_button_new_with_label("OK");
+    g_signal_connect(button, "clicked", G_CALLBACK(gtk_window_close), dialog);
+    gtk_box_append(GTK_BOX(box), button);
+
+    gtk_window_present(GTK_WINDOW(dialog));
+}
+
+gboolean show_info_dialog_idle(gpointer data)
+{
+    show_info_dialog(GTK_WINDOW(window), (const char *)data);
+    g_free(data);
+    return G_SOURCE_REMOVE;
+}
+
+// Fonction pour ajouter un message à la vue de chat
+// void append_message_to_view(const char *message)
+// {
+//     GtkTextBuffer *buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(text_view_chat));
+
+//     GtkTextIter end;
+//     gtk_text_buffer_get_end_iter(buffer, &end);
+
+//     // Format du message
+//     char formatted[512];
+//     snprintf(formatted, sizeof(formatted), "%s\n", message);
+
+//     // Insertion du message dans la vue
+//     gtk_text_buffer_insert(buffer, &end, formatted, -1);
+//     gtk_text_view_scroll_to_iter(GTK_TEXT_VIEW(text_view_chat), &end, 0.0, FALSE, 0, 0);
+// }
+
+// gboolean on_message_right_click(GtkWidget *widget, GdkEvent *event, gpointer user_data)
+// {
+//     if (event->type == GDK_BUTTON_PRESS && event->button == 3) // Right-click
+//     {
+//         GtkWidget *emoji_menu = create_emoji_selector("1"); // TODO: замінити "1" на реальний message_id
+//         gtk_menu_popup_at_pointer(GTK_MENU(emoji_menu), (GdkEvent *)event);
+//         return TRUE;
+//     }
+//     return FALSE;
+// }
+
+// gboolean on_message_right_click(GtkWidget *widget, GdkEvent *event, gpointer user_data)
+// {
+//     if (event->type == GDK_BUTTON_PRESS)
+//     {
+//         GdkEventButton *button_event = (GdkEventButton *)event;
+//         if (button_event->button == GDK_BUTTON_SECONDARY) // Right click
+//         {
+//             GtkWidget *menu = create_emoji_selector("1"); // Replace with actual message ID
+//             gtk_menu_popup_at_pointer(GTK_MENU(menu), (GdkEvent *)event);
+//             return TRUE;
+//         }
+//     }
+//     return FALSE;
+// }
+
+// void send_reaction_request(GtkMenuItem *item, gpointer user_data)
+// {
+//     const char *message_id = g_object_get_data(G_OBJECT(item), "message_id");
+//     const char *emoji = g_object_get_data(G_OBJECT(item), "emoji");
+
+//     if (strlen(current_channel) == 0)
+//         return;
+
+//     char buffer[256];
+//     snprintf(buffer, sizeof(buffer), "REACT|%s|%s|%s", current_channel, message_id, emoji);
+//     send_message_to_server(buffer);
+// }

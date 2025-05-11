@@ -1,6 +1,5 @@
 CMakeFiles/client.dir/client/src/ui_callback.c.obj: \
  D:\Daria\Downloads\La_plateforme\logiciel\langage_c\14.04.25-05.05.25\myDiscord\client\src\ui_callback.c \
- D:/Daria/Downloads/La_plateforme/logiciel/langage_c/14.04.25-05.05.25/myDiscord/client/include/ui_callback.h \
  C:/msys64/mingw64/include/gtk-4.0/gtk/gtk.h \
  C:/msys64/mingw64/include/gtk-4.0/gtk/css/gtkcss.h \
  C:/msys64/mingw64/include/glib-2.0/glib.h \
@@ -761,6 +760,7 @@ CMakeFiles/client.dir/client/src/ui_callback.c.obj: \
  C:/msys64/mingw64/include/gtk-4.0/gtk/gtkwindowcontrols.h \
  C:/msys64/mingw64/include/gtk-4.0/gtk/gtkwindowgroup.h \
  C:/msys64/mingw64/include/gtk-4.0/gtk/gtkwindowhandle.h \
+ D:/Daria/Downloads/La_plateforme/logiciel/langage_c/14.04.25-05.05.25/myDiscord/client/include/ui_callback.h \
  D:/Daria/Downloads/La_plateforme/logiciel/langage_c/14.04.25-05.05.25/myDiscord/client/include/ui.h \
  C:/msys64/mingw64/include/winsock2.h \
  C:/msys64/mingw64/include/_mingw_unicode.h \
@@ -976,4 +976,7 @@ CMakeFiles/client.dir/client/src/ui_callback.c.obj: \
  C:/msys64/mingw64/include/psdk_inc/_wsadata.h \
  C:/msys64/mingw64/include/ws2def.h \
  C:/msys64/mingw64/include/psdk_inc/_wsa_errnos.h \
- C:/msys64/mingw64/include/qos.h
+ C:/msys64/mingw64/include/qos.h C:/msys64/mingw64/include/ws2tcpip.h \
+ C:/msys64/mingw64/include/ws2ipdef.h C:/msys64/mingw64/include/in6addr.h \
+ C:/msys64/mingw64/include/psdk_inc/_ip_mreq1.h \
+ C:/msys64/mingw64/include/mstcpip.h

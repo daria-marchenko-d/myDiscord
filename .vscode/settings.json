@@ -3,6 +3,7 @@
         "*.erd": "json",
         "*.vuerd": "json",
         "ui_callback.h": "c",
-        "regex.h": "c"
+        "regex.h": "c",
+        "gdkevents.h": "c"
     }
 }

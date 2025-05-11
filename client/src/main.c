@@ -59,15 +59,6 @@ int init_client_socket()
     return 1;
 }
 
-// Envoi de message brut (à compléter avec format)
-void send_message_to_server(const char *message)
-{
-    if (sock != INVALID_SOCKET)
-    {
-        send(sock, message, strlen(message), 0);
-    }
-}
-
 // Fonction GTK de démarrage
 static void on_activate(GtkApplication *app, gpointer user_data)
 {

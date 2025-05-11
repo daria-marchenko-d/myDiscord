@@ -13,6 +13,12 @@
 },
 {
   "directory": "D:/Daria/Downloads/La_plateforme/logiciel/langage_c/14.04.25-05.05.25/myDiscord/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DLIBDEFLATE_DLL @CMakeFiles/client.dir/includes_C.rsp -g -std=gnu99   -mfpmath=sse -msse -msse2 -finput-charset=UTF-8 -fexec-charset=UTF-8 -o CMakeFiles\\client.dir\\client\\src\\ui_callback.c.obj -c D:\\Daria\\Downloads\\La_plateforme\\logiciel\\langage_c\\14.04.25-05.05.25\\myDiscord\\client\\src\\ui_callback.c",
+  "file": "D:/Daria/Downloads/La_plateforme/logiciel/langage_c/14.04.25-05.05.25/myDiscord/client/src/ui_callback.c",
+  "output": "CMakeFiles/client.dir/client/src/ui_callback.c.obj"
+},
+{
+  "directory": "D:/Daria/Downloads/La_plateforme/logiciel/langage_c/14.04.25-05.05.25/myDiscord/build",
   "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DLIBDEFLATE_DLL @CMakeFiles/client.dir/includes_C.rsp -g -std=gnu99   -mfpmath=sse -msse -msse2 -finput-charset=UTF-8 -fexec-charset=UTF-8 -o CMakeFiles\\client.dir\\server\\src\\db.c.obj -c D:\\Daria\\Downloads\\La_plateforme\\logiciel\\langage_c\\14.04.25-05.05.25\\myDiscord\\server\\src\\db.c",
   "file": "D:/Daria/Downloads/La_plateforme/logiciel/langage_c/14.04.25-05.05.25/myDiscord/server/src/db.c",
   "output": "CMakeFiles/client.dir/server/src/db.c.obj"
