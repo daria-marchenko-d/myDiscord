@@ -35,6 +35,9 @@ void on_app_activate(GtkApplication *app, gpointer user_data);
 void update_channel_list(const char **channels, int num_channels);
 void append_message_to_view(const char *username, const char *message);
 void request_channel_history(const char *channel);
+void show_channel_users(const char *users_list);
+void request_channel_users(const char *channel_name);
+void send_to_server(const char *message);
 
 // === Channel and message callbacks ===
 void on_send_button_clicked(GtkWidget *widget, gpointer data);

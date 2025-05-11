@@ -3,11 +3,15 @@
 #include <string.h>
 #include <winsock2.h>
 #include "crypto.h"
+#include <ctype.h>
 #include <ws2tcpip.h>
 #include "config.h" // Defines SERVER_PORT
 #include "db.h"     // For connecting to database functions (especially authenticate_user)
 
 int authenticate_user(const char *email, const char *hashed_password); // Keeps the old declaration for compatibility
+void handle_client(SOCKET client_socket);
+int parse_command(const char *buffer, char *command, char *args);
+void handle_request(SOCKET client_socket, const char *command, const char *args);
 
 // User roles definition
 typedef enum
@@ -184,6 +188,86 @@ void handle_client(SOCKET client_socket)
         }
     }
 
+    // === 6. Handle emoji commands ===
+    while ((valread = recv(client_socket, buffer, sizeof(buffer) - 1, 0)) > 0)
+    {
+        buffer[valread] = '\0';
+        printf("Received from client: %s\n", buffer);
+
+        char command[64], args[512];
+        if (!parse_command(buffer, command, args))
+        {
+            send(client_socket, "Invalid command format.\n", 25, 0);
+            continue;
+        }
+
+        handle_request(client_socket, command, args);
+    }
+
     // 6. End the communication with the client
+    printf("Client disconnected.\n");
     closesocket(client_socket);
+}
+
+// ====== Command Parser ======
+int parse_command(const char *buffer, char *command, char *args)
+{
+    while (*buffer && isspace(*buffer))
+        buffer++;
+    const char *space = strchr(buffer, ' ');
+    if (!space)
+        return 0;
+    size_t cmd_len = space - buffer;
+    strncpy(command, buffer, cmd_len);
+    command[cmd_len] = '\0';
+    strcpy(args, space + 1);
+    return 1;
+}
+
+// ====== Command Handler ======
+void handle_request(SOCKET client_socket, const char *command, const char *args)
+{
+    if (strcmp(command, "REACTION_ADD") == 0)
+    {
+        int message_id, user_id;
+        char emoji[16];
+        if (sscanf(args, "%d %15s %d", &message_id, emoji, &user_id) == 3)
+        {
+            if (add_or_update_reaction(message_id, user_id, emoji) == 0)
+            {
+                send(client_socket, "Reaction added/updated.\n", 25, 0);
+            }
+            else
+            {
+                send(client_socket, "Error adding reaction.\n", 24, 0);
+            }
+        }
+        else
+        {
+            send(client_socket, "Invalid REACTION_ADD format.\n", 30, 0);
+        }
+    }
+    else if (strcmp(command, "REACTION_REMOVE") == 0)
+    {
+        int message_id, user_id;
+        if (sscanf(args, "%d %d", &message_id, &user_id) == 2)
+        {
+            if (remove_reaction(message_id, user_id) == 0)
+            {
+                send(client_socket, "Reaction removed.\n", 18, 0);
+            }
+            else
+            {
+                send(client_socket, "Error removing reaction.\n", 25, 0);
+            }
+        }
+        else
+        {
+            send(client_socket, "Invalid REACTION_REMOVE format.\n", 32, 0);
+        }
+    }
+    else
+    {
+        send(client_socket, "Unknown command.\n", 17, 0);
+    }
 }

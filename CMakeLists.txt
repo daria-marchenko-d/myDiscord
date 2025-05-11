@@ -32,6 +32,8 @@ include_directories(
 add_executable(client
     client/src/main.c
     client/src/ui.c
+
+    # client/src/ui_callback.c
     server/src/db.c
 )
 

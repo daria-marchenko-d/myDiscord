@@ -13,6 +13,8 @@ void send_message_to_server(const char *message);
 // Thread de réception des messages
 void *receive_messages(void *arg);
 
+void show_channel_users(const char *users_list);
+
 // Pour ajouter un message dans la TextView depuis un thread secondaire
 gboolean append_message_to_view_idle(gpointer data);
 
