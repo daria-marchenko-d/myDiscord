@@ -260,6 +260,11 @@
 			},
 			{
 				"backtrace" : 2,
+				"fragment" : "-lws2_32",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
 				"fragment" : "-lregex",
 				"role" : "libraries"
 			},

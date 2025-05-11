@@ -40,6 +40,7 @@ add_executable(client
 target_link_libraries(client
     ${GTK4_LIBRARIES}
     ${PQ_LIBRARY}
+    ws2_32
 
     # OpenSSL::SSL
     # OpenSSL::Crypto
