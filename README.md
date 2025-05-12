@@ -1,30 +1,28 @@
 # myDiscord
 
-ENGLISH:
+## 🇬🇧 ENGLISH
 
-Our project is to recreate Discord, but in a home-grown version. A
-interface in your image, a place where messages fly in real time, where
-emojis punctuate discussions, and where channels multiply according to the
-desires of users.
+**myDiscord** is our home-grown reimagining of Discord — a real-time messaging platform that reflects your style. It’s a space where conversations flow instantly, emojis enhance interactions, and channels grow with the community’s needs.
 
-To make this digital utopia a reality, a starting point is essential: at
-each connection, users can find the history of exchanges, and know
-the author and exact time of each message.
+Our goal? To make this digital utopia a reality with features like:
+- Persistent message history across sessions
+- Timestamped messages with author information
+- Real-time updates and seamless UX
 
------------------------------------------------------------------------
-FRANÇAIS:
-Notre projet est de recréer Discord, mais en version maison. Une
-interface à votre image, un lieu où les messages fusent en temps réel, où les
-emojis ponctuent les discussions, et où les canaux se multiplient selon les
-envies des utilisateurs.
+## 🇫🇷 FRANÇAIS
 
-Pour rendre cette utopie digitale bien réelle, un point de départ s’impose : à
-chaque connexion, un utilisateur retrouve l’historique des échanges, connaît
-l’auteur et l’heure exacte de chaque message.
+**myDiscord**, c’est notre version maison de Discord : une interface à votre image, un lieu où les messages fusent en temps réel, où les emojis ponctuent les discussions, et où les canaux se multiplient selon les envies des utilisateurs.
 
---------------------------------------------------------------------------
+Notre objectif ? Offrir :
+- Un historique des échanges disponible à chaque connexion
+- L’identification de l’auteur et l’heure précise de chaque message
+- Une expérience fluide, réactive et modulable
 
-#OUR TREE STRUCTURE / NOTRE STRUCTURE ARBORESCENTE
+---
+
+## 🗂️ Tree Structure / Structure Arborescente
+
+
 
 MYDISCORDTRUE/
 
@@ -101,3 +99,25 @@ MYDISCORDTRUE/
 ├── CMakeLists.txt                       # Script de configuration CMake pour compiler le projet
 
 └── README.md                            # Documentation du projet (présentation, instructions, etc.)
+
+
+
+---
+
+## ⚙️ Technologies utilisées
+
+- **Langages** : C, SQL, Bash
+- **Technos** : Sockets, GTK, SQLite, CMake
+- **Matériel** : Linux/Unix, compilateurs GCC/Clang
+
+---
+
+## 🚀 Compilation
+
+Dans un terminal :
+
+```bash
+mkdir build
+cd build
+cmake ..
+make
