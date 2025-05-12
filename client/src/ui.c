@@ -80,11 +80,28 @@ gboolean validate_password(const char *password)
 // Create the main window
 GtkWidget *create_welcome_window(GtkApplication *app)
 {
-    GtkWidget *window = gtk_application_window_new(app);
+    if (!app)
+    {
+        g_warning("Application pointer is NULL");
+        return NULL;
+    }
+    GtkWidget *local_welcome_window = gtk_application_window_new(app);
+    if (!local_welcome_window)
+    {
+        g_warning("Failed to create welcome window");
+        return NULL;
+    }
+
     gtk_window_set_title(GTK_WINDOW(window), "Welcome to MyDiscord");
     gtk_window_set_default_size(GTK_WINDOW(window), 300, 200);
 
     GtkWidget *box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 10);
+    if (!box)
+    {
+        g_warning("Failed to create box");
+        g_object_unref(window);
+        return NULL;
+    }
     gtk_window_set_child(GTK_WINDOW(window), box);
 
     GtkWidget *login_button = gtk_button_new_with_label("Log In");
@@ -95,7 +112,7 @@ GtkWidget *create_welcome_window(GtkApplication *app)
     g_signal_connect_swapped(register_button, "clicked", G_CALLBACK(show_register_window), app);
     gtk_box_append(GTK_BOX(box), register_button);
 
-    return window;
+    return local_welcome_window;
 }
 
 // Fonction pour créer la fenêtre principale
@@ -129,6 +146,8 @@ GtkWidget *create_main_window(GtkApplication *app)
     gtk_box_append(GTK_BOX(main_box), label_users);
 
     gtk_window_present(GTK_WINDOW(window));
+
+    return window;
 }
 
 // Helper function: handle login success dialog response

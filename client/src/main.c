@@ -62,8 +62,16 @@ int init_client_socket()
 // Fonction GTK de démarrage
 static void on_activate(GtkApplication *app, gpointer user_data)
 {
-    create_main_window(app);
-    update_channel_list((const char *[]){"Général", "Tech", "Memes"}, 3); // Temporary static list
+    g_print("DEBUG: on_activate called\n");
+
+    GtkWidget *welcome_window = create_welcome_window(app);
+    if (!welcome_window)
+    {
+        g_error("Failed to create welcome window");
+        return;
+    }
+    gtk_window_present(GTK_WINDOW(welcome_window));
+    g_print("Welcome window should be visible now\n");
 }
 
 // Fonction appelée à la fin de l'application
@@ -111,8 +119,16 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
+    // Verify GTK is initialized
+    if (!gtk_is_initialized())
+    {
+        fprintf(stderr, "GTK not initialized\n");
+        g_object_unref(app);
+        return EXIT_FAILURE;
+    }
+
     // Connect GTK signals
-    g_signal_connect(app, "activate", G_CALLBACK(on_app_activate), NULL);
+    g_signal_connect(app, "activate", G_CALLBACK(on_activate), NULL);
     g_signal_connect(app, "shutdown", G_CALLBACK(on_app_shutdown), NULL);
 
     // Run GTK application
