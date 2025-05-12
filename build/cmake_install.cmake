@@ -1,8 +1,8 @@
-# Install script for directory: D:/Daria/Downloads/La_plateforme/logiciel/langage_c/14.04.25-05.05.25/myDiscord
+# Install script for directory: C:/Users/ndesc/OneDrive/Bureau/mydiscordtrue
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/mydiscord-c")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/MyDiscord")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "Debug")
+    set(CMAKE_INSTALL_CONFIG_NAME "")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -34,13 +34,13 @@ endif()
 
 # Set path to fallback-tool for dependency-resolution.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/msys64/mingw64/bin/objdump.exe")
+  set(CMAKE_OBJDUMP "C:/msys64/ucrt64/bin/objdump.exe")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "D:/Daria/Downloads/La_plateforme/logiciel/langage_c/14.04.25-05.05.25/myDiscord/build/install_local_manifest.txt"
+  file(WRITE "C:/Users/ndesc/OneDrive/Bureau/mydiscordtrue/build/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
 if(CMAKE_INSTALL_COMPONENT)
@@ -56,6 +56,6 @@ else()
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "D:/Daria/Downloads/La_plateforme/logiciel/langage_c/14.04.25-05.05.25/myDiscord/build/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "C:/Users/ndesc/OneDrive/Bureau/mydiscordtrue/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

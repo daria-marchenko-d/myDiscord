@@ -1,9 +1,5 @@
 {
     "files.associations": {
-        "*.erd": "json",
-        "*.vuerd": "json",
-        "ui_callback.h": "c",
-        "regex.h": "c",
-        "gdkevents.h": "c"
+        "sqlite3.h": "c"
     }
 }

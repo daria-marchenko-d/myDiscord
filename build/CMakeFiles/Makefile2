@@ -44,29 +44,31 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "D:\Program Files\CMake\bin\cmake.exe"
+CMAKE_COMMAND = C:\msys64\ucrt64\bin\cmake.exe
 
 # The command to remove a file.
-RM = "D:\Program Files\CMake\bin\cmake.exe" -E rm -f
+RM = C:\msys64\ucrt64\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\Daria\Downloads\La_plateforme\logiciel\langage_c\14.04.25-05.05.25\myDiscord
+CMAKE_SOURCE_DIR = C:\Users\ndesc\OneDrive\Bureau\mydiscordtrue
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\Daria\Downloads\La_plateforme\logiciel\langage_c\14.04.25-05.05.25\myDiscord\build
+CMAKE_BINARY_DIR = C:\Users\ndesc\OneDrive\Bureau\mydiscordtrue\build
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/client.dir/all
+all: CMakeFiles/mydiscord_client.dir/all
+all: CMakeFiles/mydiscord_server.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
-codegen: CMakeFiles/client.dir/codegen
+codegen: CMakeFiles/mydiscord_client.dir/codegen
+codegen: CMakeFiles/mydiscord_server.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -74,40 +76,73 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/client.dir/clean
+clean: CMakeFiles/mydiscord_client.dir/clean
+clean: CMakeFiles/mydiscord_server.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/client.dir
+# Target rules for target CMakeFiles/mydiscord_client.dir
 
 # All Build rule for target.
-CMakeFiles/client.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Daria\Downloads\La_plateforme\logiciel\langage_c\14.04.25-05.05.25\myDiscord\build\CMakeFiles --progress-num=1,2,3,4,5 "Built target client"
-.PHONY : CMakeFiles/client.dir/all
+CMakeFiles/mydiscord_client.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_client.dir\build.make CMakeFiles/mydiscord_client.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_client.dir\build.make CMakeFiles/mydiscord_client.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\ndesc\OneDrive\Bureau\mydiscordtrue\build\CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target mydiscord_client"
+.PHONY : CMakeFiles/mydiscord_client.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/client.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Daria\Downloads\La_plateforme\logiciel\langage_c\14.04.25-05.05.25\myDiscord\build\CMakeFiles 5
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/client.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Daria\Downloads\La_plateforme\logiciel\langage_c\14.04.25-05.05.25\myDiscord\build\CMakeFiles 0
-.PHONY : CMakeFiles/client.dir/rule
+CMakeFiles/mydiscord_client.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\ndesc\OneDrive\Bureau\mydiscordtrue\build\CMakeFiles 7
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/mydiscord_client.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\ndesc\OneDrive\Bureau\mydiscordtrue\build\CMakeFiles 0
+.PHONY : CMakeFiles/mydiscord_client.dir/rule
 
 # Convenience name for target.
-client: CMakeFiles/client.dir/rule
-.PHONY : client
+mydiscord_client: CMakeFiles/mydiscord_client.dir/rule
+.PHONY : mydiscord_client
 
 # codegen rule for target.
-CMakeFiles/client.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Daria\Downloads\La_plateforme\logiciel\langage_c\14.04.25-05.05.25\myDiscord\build\CMakeFiles --progress-num=1,2,3,4,5 "Finished codegen for target client"
-.PHONY : CMakeFiles/client.dir/codegen
+CMakeFiles/mydiscord_client.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_client.dir\build.make CMakeFiles/mydiscord_client.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\ndesc\OneDrive\Bureau\mydiscordtrue\build\CMakeFiles --progress-num=1,2,3,4,5,6,7 "Finished codegen for target mydiscord_client"
+.PHONY : CMakeFiles/mydiscord_client.dir/codegen
 
 # clean rule for target.
-CMakeFiles/client.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/clean
-.PHONY : CMakeFiles/client.dir/clean
+CMakeFiles/mydiscord_client.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_client.dir\build.make CMakeFiles/mydiscord_client.dir/clean
+.PHONY : CMakeFiles/mydiscord_client.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/mydiscord_server.dir
+
+# All Build rule for target.
+CMakeFiles/mydiscord_server.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_server.dir\build.make CMakeFiles/mydiscord_server.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_server.dir\build.make CMakeFiles/mydiscord_server.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\ndesc\OneDrive\Bureau\mydiscordtrue\build\CMakeFiles --progress-num=8,9,10,11,12,13 "Built target mydiscord_server"
+.PHONY : CMakeFiles/mydiscord_server.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/mydiscord_server.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\ndesc\OneDrive\Bureau\mydiscordtrue\build\CMakeFiles 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/mydiscord_server.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\ndesc\OneDrive\Bureau\mydiscordtrue\build\CMakeFiles 0
+.PHONY : CMakeFiles/mydiscord_server.dir/rule
+
+# Convenience name for target.
+mydiscord_server: CMakeFiles/mydiscord_server.dir/rule
+.PHONY : mydiscord_server
+
+# codegen rule for target.
+CMakeFiles/mydiscord_server.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_server.dir\build.make CMakeFiles/mydiscord_server.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\ndesc\OneDrive\Bureau\mydiscordtrue\build\CMakeFiles --progress-num=8,9,10,11,12,13 "Finished codegen for target mydiscord_server"
+.PHONY : CMakeFiles/mydiscord_server.dir/codegen
+
+# clean rule for target.
+CMakeFiles/mydiscord_server.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_server.dir\build.make CMakeFiles/mydiscord_server.dir/clean
+.PHONY : CMakeFiles/mydiscord_server.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -47,27 +47,27 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "D:\Program Files\CMake\bin\cmake.exe"
+CMAKE_COMMAND = C:\msys64\ucrt64\bin\cmake.exe
 
 # The command to remove a file.
-RM = "D:\Program Files\CMake\bin\cmake.exe" -E rm -f
+RM = C:\msys64\ucrt64\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\Daria\Downloads\La_plateforme\logiciel\langage_c\14.04.25-05.05.25\myDiscord
+CMAKE_SOURCE_DIR = C:\Users\ndesc\OneDrive\Bureau\mydiscordtrue
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\Daria\Downloads\La_plateforme\logiciel\langage_c\14.04.25-05.05.25\myDiscord\build
+CMAKE_BINARY_DIR = C:\Users\ndesc\OneDrive\Bureau\mydiscordtrue\build
 
 #=============================================================================
 # Targets provided globally by CMake.
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
-	"D:\Program Files\CMake\bin\cmake-gui.exe" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
+	C:\msys64\ucrt64\bin\cmake.exe -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -77,7 +77,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	"D:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	C:\msys64\ucrt64\bin\cmake.exe --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Daria\Downloads\La_plateforme\logiciel\langage_c\14.04.25-05.05.25\myDiscord\build\CMakeFiles D:\Daria\Downloads\La_plateforme\logiciel\langage_c\14.04.25-05.05.25\myDiscord\build\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\ndesc\OneDrive\Bureau\mydiscordtrue\build\CMakeFiles C:\Users\ndesc\OneDrive\Bureau\mydiscordtrue\build\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Daria\Downloads\La_plateforme\logiciel\langage_c\14.04.25-05.05.25\myDiscord\build\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\ndesc\OneDrive\Bureau\mydiscordtrue\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -116,113 +116,231 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named client
+# Target rules for targets named mydiscord_client
 
 # Build rule for target.
-client: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 client
-.PHONY : client
+mydiscord_client: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 mydiscord_client
+.PHONY : mydiscord_client
 
 # fast build rule for target.
-client/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/build
-.PHONY : client/fast
+mydiscord_client/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_client.dir\build.make CMakeFiles/mydiscord_client.dir/build
+.PHONY : mydiscord_client/fast
 
-client/src/main.obj: client/src/main.c.obj
-.PHONY : client/src/main.obj
+#=============================================================================
+# Target rules for targets named mydiscord_server
 
-# target to build an object file
-client/src/main.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/main.c.obj
-.PHONY : client/src/main.c.obj
+# Build rule for target.
+mydiscord_server: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 mydiscord_server
+.PHONY : mydiscord_server
 
-client/src/main.i: client/src/main.c.i
-.PHONY : client/src/main.i
+# fast build rule for target.
+mydiscord_server/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_server.dir\build.make CMakeFiles/mydiscord_server.dir/build
+.PHONY : mydiscord_server/fast
 
-# target to preprocess a source file
-client/src/main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/main.c.i
-.PHONY : client/src/main.c.i
-
-client/src/main.s: client/src/main.c.s
-.PHONY : client/src/main.s
-
-# target to generate assembly for a file
-client/src/main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/main.c.s
-.PHONY : client/src/main.c.s
-
-client/src/ui.obj: client/src/ui.c.obj
-.PHONY : client/src/ui.obj
+server_main/main_server.obj: server_main/main_server.c.obj
+.PHONY : server_main/main_server.obj
 
 # target to build an object file
-client/src/ui.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/ui.c.obj
-.PHONY : client/src/ui.c.obj
+server_main/main_server.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_server.dir\build.make CMakeFiles/mydiscord_server.dir/server_main/main_server.c.obj
+.PHONY : server_main/main_server.c.obj
 
-client/src/ui.i: client/src/ui.c.i
-.PHONY : client/src/ui.i
+server_main/main_server.i: server_main/main_server.c.i
+.PHONY : server_main/main_server.i
 
 # target to preprocess a source file
-client/src/ui.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/ui.c.i
-.PHONY : client/src/ui.c.i
+server_main/main_server.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_server.dir\build.make CMakeFiles/mydiscord_server.dir/server_main/main_server.c.i
+.PHONY : server_main/main_server.c.i
 
-client/src/ui.s: client/src/ui.c.s
-.PHONY : client/src/ui.s
+server_main/main_server.s: server_main/main_server.c.s
+.PHONY : server_main/main_server.s
 
 # target to generate assembly for a file
-client/src/ui.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/ui.c.s
-.PHONY : client/src/ui.c.s
+server_main/main_server.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_server.dir\build.make CMakeFiles/mydiscord_server.dir/server_main/main_server.c.s
+.PHONY : server_main/main_server.c.s
 
-client/src/ui_callback.obj: client/src/ui_callback.c.obj
-.PHONY : client/src/ui_callback.obj
+src/crypto.obj: src/crypto.c.obj
+.PHONY : src/crypto.obj
 
 # target to build an object file
-client/src/ui_callback.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/ui_callback.c.obj
-.PHONY : client/src/ui_callback.c.obj
+src/crypto.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_client.dir\build.make CMakeFiles/mydiscord_client.dir/src/crypto.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_server.dir\build.make CMakeFiles/mydiscord_server.dir/src/crypto.c.obj
+.PHONY : src/crypto.c.obj
 
-client/src/ui_callback.i: client/src/ui_callback.c.i
-.PHONY : client/src/ui_callback.i
+src/crypto.i: src/crypto.c.i
+.PHONY : src/crypto.i
 
 # target to preprocess a source file
-client/src/ui_callback.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/ui_callback.c.i
-.PHONY : client/src/ui_callback.c.i
+src/crypto.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_client.dir\build.make CMakeFiles/mydiscord_client.dir/src/crypto.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_server.dir\build.make CMakeFiles/mydiscord_server.dir/src/crypto.c.i
+.PHONY : src/crypto.c.i
 
-client/src/ui_callback.s: client/src/ui_callback.c.s
-.PHONY : client/src/ui_callback.s
+src/crypto.s: src/crypto.c.s
+.PHONY : src/crypto.s
 
 # target to generate assembly for a file
-client/src/ui_callback.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/ui_callback.c.s
-.PHONY : client/src/ui_callback.c.s
+src/crypto.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_client.dir\build.make CMakeFiles/mydiscord_client.dir/src/crypto.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_server.dir\build.make CMakeFiles/mydiscord_server.dir/src/crypto.c.s
+.PHONY : src/crypto.c.s
 
-server/src/db.obj: server/src/db.c.obj
-.PHONY : server/src/db.obj
+src/database.obj: src/database.c.obj
+.PHONY : src/database.obj
 
 # target to build an object file
-server/src/db.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/server/src/db.c.obj
-.PHONY : server/src/db.c.obj
+src/database.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_client.dir\build.make CMakeFiles/mydiscord_client.dir/src/database.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_server.dir\build.make CMakeFiles/mydiscord_server.dir/src/database.c.obj
+.PHONY : src/database.c.obj
 
-server/src/db.i: server/src/db.c.i
-.PHONY : server/src/db.i
+src/database.i: src/database.c.i
+.PHONY : src/database.i
 
 # target to preprocess a source file
-server/src/db.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/server/src/db.c.i
-.PHONY : server/src/db.c.i
+src/database.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_client.dir\build.make CMakeFiles/mydiscord_client.dir/src/database.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_server.dir\build.make CMakeFiles/mydiscord_server.dir/src/database.c.i
+.PHONY : src/database.c.i
 
-server/src/db.s: server/src/db.c.s
-.PHONY : server/src/db.s
+src/database.s: src/database.c.s
+.PHONY : src/database.s
 
 # target to generate assembly for a file
-server/src/db.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/server/src/db.c.s
-.PHONY : server/src/db.c.s
+src/database.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_client.dir\build.make CMakeFiles/mydiscord_client.dir/src/database.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_server.dir\build.make CMakeFiles/mydiscord_server.dir/src/database.c.s
+.PHONY : src/database.c.s
+
+src/gui.obj: src/gui.c.obj
+.PHONY : src/gui.obj
+
+# target to build an object file
+src/gui.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_client.dir\build.make CMakeFiles/mydiscord_client.dir/src/gui.c.obj
+.PHONY : src/gui.c.obj
+
+src/gui.i: src/gui.c.i
+.PHONY : src/gui.i
+
+# target to preprocess a source file
+src/gui.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_client.dir\build.make CMakeFiles/mydiscord_client.dir/src/gui.c.i
+.PHONY : src/gui.c.i
+
+src/gui.s: src/gui.c.s
+.PHONY : src/gui.s
+
+# target to generate assembly for a file
+src/gui.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_client.dir\build.make CMakeFiles/mydiscord_client.dir/src/gui.c.s
+.PHONY : src/gui.c.s
+
+src/main.obj: src/main.c.obj
+.PHONY : src/main.obj
+
+# target to build an object file
+src/main.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_client.dir\build.make CMakeFiles/mydiscord_client.dir/src/main.c.obj
+.PHONY : src/main.c.obj
+
+src/main.i: src/main.c.i
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_client.dir\build.make CMakeFiles/mydiscord_client.dir/src/main.c.i
+.PHONY : src/main.c.i
+
+src/main.s: src/main.c.s
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_client.dir\build.make CMakeFiles/mydiscord_client.dir/src/main.c.s
+.PHONY : src/main.c.s
+
+src/network.obj: src/network.c.obj
+.PHONY : src/network.obj
+
+# target to build an object file
+src/network.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_client.dir\build.make CMakeFiles/mydiscord_client.dir/src/network.c.obj
+.PHONY : src/network.c.obj
+
+src/network.i: src/network.c.i
+.PHONY : src/network.i
+
+# target to preprocess a source file
+src/network.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_client.dir\build.make CMakeFiles/mydiscord_client.dir/src/network.c.i
+.PHONY : src/network.c.i
+
+src/network.s: src/network.c.s
+.PHONY : src/network.s
+
+# target to generate assembly for a file
+src/network.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_client.dir\build.make CMakeFiles/mydiscord_client.dir/src/network.c.s
+.PHONY : src/network.c.s
+
+src/server.obj: src/server.c.obj
+.PHONY : src/server.obj
+
+# target to build an object file
+src/server.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_server.dir\build.make CMakeFiles/mydiscord_server.dir/src/server.c.obj
+.PHONY : src/server.c.obj
+
+src/server.i: src/server.c.i
+.PHONY : src/server.i
+
+# target to preprocess a source file
+src/server.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_server.dir\build.make CMakeFiles/mydiscord_server.dir/src/server.c.i
+.PHONY : src/server.c.i
+
+src/server.s: src/server.c.s
+.PHONY : src/server.s
+
+# target to generate assembly for a file
+src/server.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_server.dir\build.make CMakeFiles/mydiscord_server.dir/src/server.c.s
+.PHONY : src/server.c.s
+
+src/utils.obj: src/utils.c.obj
+.PHONY : src/utils.obj
+
+# target to build an object file
+src/utils.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_client.dir\build.make CMakeFiles/mydiscord_client.dir/src/utils.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_server.dir\build.make CMakeFiles/mydiscord_server.dir/src/utils.c.obj
+.PHONY : src/utils.c.obj
+
+src/utils.i: src/utils.c.i
+.PHONY : src/utils.i
+
+# target to preprocess a source file
+src/utils.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_client.dir\build.make CMakeFiles/mydiscord_client.dir/src/utils.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_server.dir\build.make CMakeFiles/mydiscord_server.dir/src/utils.c.i
+.PHONY : src/utils.c.i
+
+src/utils.s: src/utils.c.s
+.PHONY : src/utils.s
+
+# target to generate assembly for a file
+src/utils.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_client.dir\build.make CMakeFiles/mydiscord_client.dir/src/utils.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mydiscord_server.dir\build.make CMakeFiles/mydiscord_server.dir/src/utils.c.s
+.PHONY : src/utils.c.s
 
 # Help Target
 help:
@@ -232,19 +350,32 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... client
-	@echo ... client/src/main.obj
-	@echo ... client/src/main.i
-	@echo ... client/src/main.s
-	@echo ... client/src/ui.obj
-	@echo ... client/src/ui.i
-	@echo ... client/src/ui.s
-	@echo ... client/src/ui_callback.obj
-	@echo ... client/src/ui_callback.i
-	@echo ... client/src/ui_callback.s
-	@echo ... server/src/db.obj
-	@echo ... server/src/db.i
-	@echo ... server/src/db.s
+	@echo ... mydiscord_client
+	@echo ... mydiscord_server
+	@echo ... server_main/main_server.obj
+	@echo ... server_main/main_server.i
+	@echo ... server_main/main_server.s
+	@echo ... src/crypto.obj
+	@echo ... src/crypto.i
+	@echo ... src/crypto.s
+	@echo ... src/database.obj
+	@echo ... src/database.i
+	@echo ... src/database.s
+	@echo ... src/gui.obj
+	@echo ... src/gui.i
+	@echo ... src/gui.s
+	@echo ... src/main.obj
+	@echo ... src/main.i
+	@echo ... src/main.s
+	@echo ... src/network.obj
+	@echo ... src/network.i
+	@echo ... src/network.s
+	@echo ... src/server.obj
+	@echo ... src/server.i
+	@echo ... src/server.s
+	@echo ... src/utils.obj
+	@echo ... src/utils.i
+	@echo ... src/utils.s
 .PHONY : help
 
 
