@@ -28,11 +28,13 @@ MYDISCORDTRUE/
 
 ├── .vscode/                             # Configuration spécifique à VS Code
 
-│  ├── c_cpp_properties.json            # Configuration des chemins d'inclusion pour C/C++
+│   ├── c_cpp_properties.json            # Configuration des chemins d'inclusion pour C/C++
 
 │   └── settings.json                    # Paramètres personnalisés de l'environnement VS Code
+
 │
 ├── assets/                              # (Vide ou à compléter) Contient éventuellement des fichiers statiques (images, icônes, etc.)
+
 │
 ├── build/                               # Dossier de génération contenant les fichiers compilés
 
@@ -47,8 +49,10 @@ MYDISCORDTRUE/
 │   ├── mydiscord_client.exe             # Exécutable du client compilé
 
 │   └── mydiscord_server.exe            # Exécutable du serveur compilé
+
 │
 ├── include/                             # Fichiers d'en-tête (.h), déclarations des fonctions et structures
+
 
 │   ├── app.h                            # Interface de gestion de l'application
 
@@ -63,16 +67,22 @@ MYDISCORDTRUE/
 │   ├── server.h                         # Interface du serveur
 
 │   └── utils.h                          # Fonctions utilitaires diverses
+
 │
 ├── server_main/                         # Contient le point d'entrée du serveur
 
+
 │   └── main_server.c                    # Fichier principal du serveur
+
 │
 ├── sql/                                 # Scripts SQL pour la base de données
 
+
 │   └── database.sql                     # Script de création de la base ou des tables SQL
+
 │
 ├── mydiscord.db                         # Fichier de base de données SQLite utilisé par l’application
+
 │
 ├── src/                                 # Code source de l’application
 
@@ -95,11 +105,12 @@ MYDISCORDTRUE/
 │   ├── test_db.exe                      # Exécutable compilé pour tester la base de données
 
 │   └── utils.c                          # Fonctions utilitaires (conversion, parsing, etc.)
+
 │
 ├── CMakeLists.txt                       # Script de configuration CMake pour compiler le projet
 
-└── README.md                            # Documentation du projet (présentation, instructions, etc.)
 
+└── README.md                            # Documentation du projet (présentation, instructions, etc.)
 
 
 ---
